@@ -9,18 +9,18 @@ const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-    { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop', alt: 'Classroom Learning' },
-    { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop', alt: 'Science Lab' },
-    { src: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=400&fit=crop', alt: 'Library' },
-    { src: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&h=400&fit=crop', alt: 'Sports Field' },
-    { src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop', alt: 'Graduation' },
-    { src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&h=400&fit=crop', alt: 'Art Class' },
-    { src: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&h=400&fit=crop', alt: 'Books' },
-    { src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop', alt: 'Student Group' },
-    { src: 'https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&h=400&fit=crop', alt: 'Computer Lab' },
-    { src: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop', alt: 'Lecture Hall' },
-    { src: 'https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop', alt: 'Campus View' },
-    { src: 'https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop', alt: 'Modern Building' },
+    { src: '/png/a.png', alt: 'Campus life A' },
+    { src: '/png/b.png', alt: 'Campus life B' },
+    { src: '/png/c.png', alt: 'Campus life C' },
+    { src: '/png/d.png', alt: 'Campus life D' },
+    { src: '/png/e.png', alt: 'Campus life E' },
+    { src: '/png/f.png', alt: 'Campus life F' },
+    { src: '/png/g.png', alt: 'Campus life G' },
+    { src: '/png/h.png', alt: 'Campus life H' },
+    { src: '/png/i.png', alt: 'Campus life I' },
+    { src: '/png/j.png', alt: 'Campus life J' },
+    { src: '/png/k.png', alt: 'Campus life K' },
+    { src: '/png/l.png', alt: 'Campus life L' },
   ];
 
   return (
@@ -95,7 +95,7 @@ const Gallery: React.FC = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
-              src={selectedImage.replace('w=600&h=400', 'w=1200&h=800')}
+              src={selectedImage}
               alt="Gallery Image"
               className="max-w-full max-h-[90vh] rounded-xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
