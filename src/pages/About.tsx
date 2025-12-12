@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, History, Award, Users, BookOpen } from 'lucide-react';
+import { Target, Eye, Award, BookOpen } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -8,8 +8,7 @@ const About: React.FC = () => {
   const { t } = useLanguage();
 
   const achievements = [
-    { icon: Award, value: '150+', label: 'Awards & Recognition' },
-    { icon: Users, value: '50,000+', label: 'Alumni Worldwide' },
+    { icon: Award, value: '50+', label: 'Awards & Recognition' },
     { icon: BookOpen, value: '95%', label: 'University Placement' },
   ];
 
@@ -84,44 +83,6 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* History */}
-      <section className="py-20 lg:py-28 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center">
-                <History className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground">
-                {t('ourHistory')}
-              </h2>
-            </div>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Founded in 1990 by visionary educators Dr. James Bright and Mrs. Helen Bright, 
-                Tuproqqal'a tuman Ixtisoslashtirilgan maktabi began as a small school with just 50 students and a dream 
-                to transform education in our community.
-              </p>
-              <p>
-                Over the years, we have grown into a premier educational institution with 
-                state-of-the-art facilities, serving over 2,500 students from diverse backgrounds. 
-                Our commitment to academic excellence, character development, and innovation 
-                has remained unwavering throughout our journey.
-              </p>
-              <p>
-                Today, our alumni are leaders in various fields across the globe, carrying forward 
-                the values and knowledge they gained at Tuproqqal'a tuman Ixtisoslashtirilgan maktabi.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Achievements */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4">
@@ -135,7 +96,7 @@ const About: React.FC = () => {
               Our Achievements
             </h2>
           </motion.div>
-          <div className="grid sm:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
             {achievements.map((item, index) => (
               <motion.div
                 key={item.label}
