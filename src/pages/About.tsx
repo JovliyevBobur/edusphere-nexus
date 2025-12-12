@@ -32,10 +32,10 @@ const About: React.FC = () => {
               {t('about')}
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mt-3 mb-6">
-              Building Futures Since 1990
+              Building Futures Since 2022
             </h1>
             <p className="text-lg text-muted-foreground">
-              For over three decades, Tuproqqal'a tuman Ixtisoslashtirilgan maktabi has been a beacon of educational excellence, 
+              For over 4 years, Tuproqqal'a tuman Ixtisoslashtirilgan maktabi has been a beacon of educational excellence, 
               nurturing young minds and preparing them for the challenges of tomorrow.
             </p>
           </motion.div>
@@ -104,10 +104,10 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-8 rounded-2xl bg-card border border-border/50"
+                className="text-center p-6 rounded-xl bg-card border border-border/50 shadow-sm"
               >
-                <item.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <div className="font-display text-4xl font-bold text-foreground mb-2">
+                <item.icon className="w-6 h-6 text-primary mx-auto mb-3" />
+                <div className="font-display text-3xl font-bold text-foreground mb-1">
                   {item.value}
                 </div>
                 <div className="text-muted-foreground">{item.label}</div>
