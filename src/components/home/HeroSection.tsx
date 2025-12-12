@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Award, BookOpen, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import heroImage from '@/assets/hero-school.jpg';
 
 const HeroSection: React.FC = () => {
   const { t } = useLanguage();
@@ -129,9 +128,9 @@ const HeroSection: React.FC = () => {
             <div className="relative z-10">
               <div className="absolute -inset-4 bg-gradient-primary rounded-3xl opacity-20 blur-2xl" />
               <img
-                src={heroImage}
-                alt="Bright Future Academy Campus"
-                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover"
+                src="/favicon.ico.png"
+                alt="Bright Future Academy emblem"
+                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover bg-white/10 p-6"
               />
             </div>
             {/* Decorative Elements */}

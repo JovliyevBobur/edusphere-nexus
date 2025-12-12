@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, Sun, Moon, GraduationCap } from 'lucide-react';
+import { Menu, X, Search, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
@@ -76,8 +76,8 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-              <GraduationCap className="w-6 h-6 text-primary-foreground" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow overflow-hidden">
+              <img src="/favicon.ico.png" alt="School logo" className="w-8 h-8 object-contain" />
             </div>
             <span className="font-display font-bold text-lg text-foreground hidden sm:block">Tuproqqal'a tuman Ixtisoslashgan maktabi</span>
           </Link>
