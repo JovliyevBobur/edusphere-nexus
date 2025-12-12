@@ -90,13 +90,13 @@ const About: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground">
               Our Achievements
             </h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+          <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
             {achievements.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -104,13 +104,13 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 rounded-xl bg-card border border-border/50 shadow-sm"
+                className="text-center p-4 rounded-xl bg-card shadow-sm border border-border/50"
               >
-                <item.icon className="w-6 h-6 text-primary mx-auto mb-3" />
-                <div className="font-display text-3xl font-bold text-foreground mb-1">
+                <item.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                <div className="font-display font-bold text-2xl text-foreground mb-1">
                   {item.value}
                 </div>
-                <div className="text-muted-foreground">{item.label}</div>
+                <div className="text-xs text-muted-foreground">{item.label}</div>
               </motion.div>
             ))}
           </div>
