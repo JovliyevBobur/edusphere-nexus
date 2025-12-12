@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Award, BookOpen } from 'lucide-react';
+import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -8,8 +8,11 @@ const About: React.FC = () => {
   const { t } = useLanguage();
 
   const achievements = [
-    { icon: Award, value: '50+', label: 'Awards & Recognition' },
-    { icon: BookOpen, value: '95%', label: 'University Placement' },
+    { icon: Users, value: '295+', label: 'Students' },
+    { icon: BookOpen, value: '29+', label: 'Teachers' },
+    { icon: Calendar, value: '4+', label: 'Years of Experience' },
+    { icon: Award, value: '50+', label: 'Awards Won' },
+    { icon: GraduationCap, value: '95%', label: 'University Placement' },
   ];
 
   const leadership = [
@@ -96,7 +99,7 @@ const About: React.FC = () => {
               Our Achievements
             </h2>
           </motion.div>
-          <div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {achievements.map((item, index) => (
               <motion.div
                 key={item.label}
