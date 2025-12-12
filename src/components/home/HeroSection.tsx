@@ -9,10 +9,10 @@ const HeroSection: React.FC = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Users, value: '2,500+', label: t('students') },
-    { icon: BookOpen, value: '120+', label: t('teachersCount') },
-    { icon: Calendar, value: '33+', label: t('yearsExp') },
-    { icon: Award, value: '150+', label: t('awards') },
+    { icon: Users, value: '295+', label: t('students') },
+    { icon: BookOpen, value: '29+', label: t('teachersCount') },
+    { icon: Calendar, value: '3+', label: t('yearsExp') },
+    { icon: Award, value: '50+', label: t('awards') },
   ];
 
   return (
@@ -46,16 +46,6 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6 text-center lg:text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium"
-            >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              {t('heroSubtitle')}
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

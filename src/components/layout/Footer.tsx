@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center overflow-hidden">
                 <img src="/favicon.ico.png" alt="Bright Future Academy logo" className="w-8 h-8 object-contain" />
               </div>
               <span className="font-display font-bold text-lg">Bright Future Academy</span>
