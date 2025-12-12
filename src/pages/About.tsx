@@ -36,7 +36,7 @@ const About: React.FC = () => {
               Building Futures Since 1990
             </h1>
             <p className="text-lg text-muted-foreground">
-              For over three decades, Bright Future Academy has been a beacon of educational excellence, 
+              For over three decades, Tuproqqal'a tuman Ixtisoslashtirilgan maktabi has been a beacon of educational excellence, 
               nurturing young minds and preparing them for the challenges of tomorrow.
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ const About: React.FC = () => {
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Founded in 1990 by visionary educators Dr. James Bright and Mrs. Helen Bright, 
-                Bright Future Academy began as a small school with just 50 students and a dream 
+                Tuproqqal'a tuman Ixtisoslashtirilgan maktabi began as a small school with just 50 students and a dream 
                 to transform education in our community.
               </p>
               <p>
@@ -115,7 +115,7 @@ const About: React.FC = () => {
               </p>
               <p>
                 Today, our alumni are leaders in various fields across the globe, carrying forward 
-                the values and knowledge they gained at Bright Future Academy.
+                the values and knowledge they gained at Tuproqqal'a tuman Ixtisoslashtirilgan maktabi.
               </p>
             </div>
           </motion.div>

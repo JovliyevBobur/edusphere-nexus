@@ -42,7 +42,7 @@ const CTASection: React.FC = () => {
             Ready to Join Our Community?
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-            Take the first step towards an exceptional education. Apply now and become part of the Bright Future Academy family.
+            Take the first step towards an exceptional education. Apply now and become part of the Tuproqqal'a tuman Ixtisoslashtirilgan maktabi family.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

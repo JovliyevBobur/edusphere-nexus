@@ -78,7 +78,7 @@ const FeaturesSection: React.FC = () => {
             Excellence in Every Aspect
           </h2>
           <p className="text-muted-foreground text-lg">
-            Discover what makes Bright Future Academy the perfect choice for your child's educational journey.
+            Discover what makes Tuproqqal'a tuman Ixtisoslashtirilgan maktabi the perfect choice for your child's educational journey.
           </p>
         </motion.div>
 

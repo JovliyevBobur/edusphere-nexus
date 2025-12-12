@@ -93,7 +93,7 @@ const Events: React.FC = () => {
             </h1>
             <p className="text-lg text-muted-foreground">
               Mark your calendar for exciting events, performances, and activities 
-              happening at Bright Future Academy.
+              happening at Tuproqqal'a tuman Ixtisoslashtirilgan maktabi.
             </p>
           </motion.div>
         </div>

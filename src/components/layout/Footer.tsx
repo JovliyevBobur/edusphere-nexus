@@ -32,9 +32,9 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center overflow-hidden">
-                <img src="/favicon.ico.png" alt="Bright Future Academy logo" className="w-8 h-8 object-contain" />
+                <img src="/favicon.ico.png" alt="Tuproqqal'a tuman Ixtisoslashtirilgan maktabi logo" className="w-8 h-8 object-contain" />
               </div>
-              <span className="font-display font-bold text-lg">Bright Future Academy</span>
+              <span className="font-display font-bold text-lg">Tuproqqal'a tuman Ixtisoslashtirilgan maktabi</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Empowering minds, shaping futures. We provide world-class education with a focus on innovation and excellence.
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Bright Future Academy. {t('allRightsReserved')}.
+            © {currentYear} Tuproqqal'a tuman Ixtisoslashtirilgan maktabi. {t('allRightsReserved')}.
           </p>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>

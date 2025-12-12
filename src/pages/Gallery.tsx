@@ -41,7 +41,7 @@ const Gallery: React.FC = () => {
             </h1>
             <p className="text-lg text-muted-foreground">
               Take a visual tour of our campus, facilities, and the vibrant life 
-              at Bright Future Academy.
+              at Tuproqqal'a tuman Ixtisoslashtirilgan maktabi.
             </p>
           </motion.div>
         </div>

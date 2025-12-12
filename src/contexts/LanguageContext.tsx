@@ -24,7 +24,7 @@ const translations: Translations = {
   // Hero Section
   heroTitle: { en: 'Shaping Tomorrow\'s Leaders', uz: 'Ertangi yetakchilarni shakllantirish', ru: 'Формируем лидеров завтрашнего дня' },
   heroSubtitle: { en: 'Excellence in Education Since 1990', uz: '1990 yildan beri ta\'limda mukammallik', ru: 'Совершенство в образовании с 1990 года' },
-  heroDescription: { en: 'Bright Future Academy provides world-class education with modern facilities, experienced teachers, and a commitment to nurturing each student\'s potential.', uz: 'Bright Future Academy zamonaviy inshootlar, tajribali o\'qituvchilar va har bir o\'quvchining salohiyatini rivojlantirishga sodiqlik bilan jahon darajasidagi ta\'limni taqdim etadi.', ru: 'Академия Bright Future предоставляет образование мирового класса с современными условиями, опытными преподавателями и стремлением раскрыть потенциал каждого ученика.' },
+  heroDescription: { en: "Tuproqqal'a tuman Ixtisoslashtirilgan maktabi provides world-class education with modern facilities, experienced teachers, and a commitment to nurturing each student's potential.", uz: "Tuproqqal'a tuman Ixtisoslashtirilgan maktabi zamonaviy inshootlar, tajribali o'qituvchilar va har bir o'quvchining salohiyatini rivojlantirishga sodiqlik bilan jahon darajasidagi ta'limni taqdim etadi.", ru: "Tuproqqal'a tuman Ixtisoslashtirilган maktabi предоставляет образование мирового класса с современными условиями, опытными преподавателями и стремлением раскрыть потенциал каждого ученика." },
   getStarted: { en: 'Get Started', uz: 'Boshlash', ru: 'Начать' },
   learnMore: { en: 'Learn More', uz: "Ko'proq o'rganish", ru: 'Узнать больше' },
   applyNow: { en: 'Apply Now', uz: 'Hozir ariza bering', ru: 'Подать заявку' },

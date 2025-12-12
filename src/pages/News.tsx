@@ -84,7 +84,7 @@ const News: React.FC = () => {
             </h1>
             <p className="text-lg text-muted-foreground">
               Stay informed about the latest happenings, achievements, and announcements 
-              from Bright Future Academy.
+              from Tuproqqal'a tuman Ixtisoslashtirilgan maktabi.
             </p>
           </motion.div>
         </div>
