@@ -118,7 +118,7 @@ const HeroSection: React.FC = () => {
             <div className="relative z-10">
               <div className="absolute -inset-4 bg-gradient-primary rounded-3xl opacity-20 blur-2xl" />
               <img
-                src="/favicon.ico.png"
+                src="/biz.png"
                 alt="Tuproqqal'a tuman Ixtisoslashtirilgan maktabi emblem"
                 className="relative rounded-2xl shadow-2xl w-full h-auto object-cover bg-white/10 p-6"
               />
