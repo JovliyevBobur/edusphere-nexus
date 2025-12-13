@@ -120,7 +120,7 @@ const HeroSection: React.FC = () => {
               <img
                 src="/biz.png"
                 alt="Tuproqqal'a tuman Ixtisoslashtirilgan maktabi emblem"
-                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover bg-white/10 p-6"
+                className="relative rounded-3xl shadow-2xl w-full h-auto object-cover bg-white/10 p-6"
               />
             </div>
             {/* Decorative Elements */}
