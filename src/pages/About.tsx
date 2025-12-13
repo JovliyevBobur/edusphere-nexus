@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap, Trophy, FileText, Laptop, Leaf, Brain, FlaskConical, Atom, Calculator, Activity, Heart } from 'lucide-react';
+import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap, Trophy, FileText, Laptop, Leaf, Brain, FlaskConical, Atom, Calculator, Activity, Heart, BarChart3 } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -58,8 +58,17 @@ const About: React.FC = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/ima.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -104,7 +113,7 @@ const About: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/maktab/rasm.png)',
+            backgroundImage: 'url(/ima.png)',
           }}
         />
         <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
@@ -149,8 +158,17 @@ const About: React.FC = () => {
       </section>
 
       {/* Quality of Education and Achievements */}
-      <section className="py-20 lg:py-28 bg-muted/50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/ima.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -227,13 +245,78 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* Teacher Qualification Categories */}
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/ima.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Content */}
+              <div>
+                <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6">
+                  <BarChart3 className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                  Teacher Qualification Categories
+                </h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    In the 2024–2025 academic year, an analysis was conducted of the professional qualification categories of teachers working at the Tuproqqal'a District Specialized School. These indicators demonstrate the high level of teachers' qualifications and the quality of education.
+                  </p>
+                  <p className="font-semibold text-foreground">According to the analysis results:</p>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>1 teacher holds the Specialist category,</li>
+                    <li>2 teachers are in the Second category,</li>
+                    <li>5 teachers are in the First category,</li>
+                    <li>19 teachers hold the Highest category.</li>
+                  </ul>
+                  <p>
+                    These results clearly indicate that the school has a high proportion of experienced and highly qualified teachers. In particular, the large number of teachers with the highest qualification category significantly contributes to improving the effectiveness of the educational process and has a positive impact on students' academic performance and achievements.
+                  </p>
+                </div>
+              </div>
+
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <div className="relative z-10">
+                  <div className="absolute -inset-4 bg-gradient-primary rounded-3xl opacity-20 blur-2xl" />
+                  <img
+                    src="/abc.png"
+                    alt="Teacher Qualification Categories Chart"
+                    className="relative rounded-2xl shadow-2xl w-full h-auto object-cover bg-white/10 p-4"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Clubs and Development */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         {/* Background Image with Backdrop */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/maktab/rasm5.png)',
+            backgroundImage: 'url(/ima.png)',
           }}
         />
         <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
@@ -352,8 +435,17 @@ const About: React.FC = () => {
       </section>
 
       {/* Achievements */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/ima.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -386,8 +478,17 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership */}
-      <section className="py-20 lg:py-28 bg-muted/50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/ima.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
