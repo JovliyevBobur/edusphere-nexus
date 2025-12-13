@@ -47,10 +47,10 @@ const CTASection: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-lg">
             Ready to Join Our Community?
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto drop-shadow-md">
             Take the first step towards an exceptional education. Apply now and become part of the Tuproqqal'a tuman Ixtisoslashtirilgan maktabi family.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
