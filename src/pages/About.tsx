@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap, Trophy, FileText, Laptop, Leaf, Brain, FlaskConical, Atom, Calculator } from 'lucide-react';
+import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap, Trophy, FileText, Laptop, Leaf, Brain, FlaskConical, Atom, Calculator, Activity, Heart } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -83,6 +83,47 @@ const About: React.FC = () => {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 {t('visionText')}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Spiritual, Educational, and Sports Activities & Psychological Support */}
+      <section className="py-20 lg:py-28">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50"
+            >
+              <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6">
+                <Activity className="w-7 h-7 text-primary-foreground" />
+              </div>
+              <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                Spiritual, Educational, and Sports Activities
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Great attention is paid to the physical and moral development of students at the school. Winners of national and international competitions in sports such as karate and Turon martial arts are being trained. In addition, festive events, contests, and military-sports competitions are regularly organized.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50"
+            >
+              <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6">
+                <Heart className="w-7 h-7 text-primary-foreground" />
+              </div>
+              <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                Psychological Support
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Throughout the academic year, the school psychologist conducts more than 45 psychological training sessions aimed at developing students' teamwork, leadership, and social adaptation skills.
               </p>
             </motion.div>
           </div>
