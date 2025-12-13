@@ -24,8 +24,17 @@ const About: React.FC = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="py-20 lg:py-28 bg-gradient-hero">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 bg-gradient-hero overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/ima.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,17 +139,16 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Quality of Education and Achievements & Clubs and Development */}
+      {/* Quality of Education and Achievements */}
       <section className="py-20 lg:py-28 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Quality of Education and Achievements */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50">
               <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6">
                 <Award className="w-7 h-7 text-primary-foreground" />
               </div>
@@ -151,7 +159,7 @@ const About: React.FC = () => {
                 Highly qualified teachers holding national and international certifications work at the school. Our students actively and successfully participate in regional, national, and international academic olympiads, competitions, and sports events, consistently achieving prize-winning places.
               </p>
               
-              <div className="grid gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -205,15 +213,21 @@ const About: React.FC = () => {
                   </p>
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Clubs and Development */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50"
-            >
+      {/* Clubs and Development */}
+      <section className="py-20 lg:py-28">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50">
               <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6">
                 <Users className="w-7 h-7 text-primary-foreground" />
               </div>
@@ -224,7 +238,7 @@ const About: React.FC = () => {
                 At the school, the following clubs operate with the aim of developing students' interests and talents:
               </p>
               
-              <div className="grid gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -314,8 +328,8 @@ const About: React.FC = () => {
                   </h3>
                 </motion.div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
