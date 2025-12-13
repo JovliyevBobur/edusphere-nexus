@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap } from 'lucide-react';
+import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap, Trophy, FileText } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -86,6 +86,85 @@ const About: React.FC = () => {
               </p>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Quality of Education and Achievements */}
+      <section className="py-20 lg:py-28 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="p-8 lg:p-10 rounded-2xl bg-card border border-border/50">
+              <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-6">
+                <Award className="w-7 h-7 text-primary-foreground" />
+              </div>
+              <h2 className="font-display text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                Quality of Education and Achievements
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                Highly qualified teachers holding national and international certifications work at the school. Our students actively and successfully participate in regional, national, and international academic olympiads, competitions, and sports events, consistently achieving prize-winning places.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="p-6 rounded-xl bg-muted/50 border border-border/50"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <Trophy className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    Winners of regional and national olympiads
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    in mathematics and other subjects
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="p-6 rounded-xl bg-muted/50 border border-border/50"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <FileText className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    Students holding certificates
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    IELTS, CEFR, and national certificates
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="p-6 rounded-xl bg-muted/50 border border-border/50"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <GraduationCap className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    100% University Admission
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    In the 2024/2025 academic year, 100% of graduates were admitted to higher education institutions
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
