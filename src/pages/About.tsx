@@ -99,8 +99,17 @@ const About: React.FC = () => {
       </section>
 
       {/* Spiritual, Educational, and Sports Activities & Psychological Support */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/maktab/rasm.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -219,8 +228,17 @@ const About: React.FC = () => {
       </section>
 
       {/* Clubs and Development */}
-      <section className="py-20 lg:py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Backdrop */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/maktab/rasm5.png)',
+          }}
+        />
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
