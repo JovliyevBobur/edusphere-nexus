@@ -107,7 +107,7 @@ const About: React.FC = () => {
             backgroundImage: 'url(/maktab/rasm.png)',
           }}
         />
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -236,7 +236,7 @@ const About: React.FC = () => {
             backgroundImage: 'url(/maktab/rasm5.png)',
           }}
         />
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
