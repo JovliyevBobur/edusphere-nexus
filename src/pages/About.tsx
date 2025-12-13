@@ -24,17 +24,8 @@ const About: React.FC = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-20 lg:py-28 bg-gradient-hero overflow-hidden">
-        {/* Background Image with Backdrop */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/ima.png)',
-          }}
-        />
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-        
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 lg:py-28 bg-gradient-hero">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
