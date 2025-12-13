@@ -10,6 +10,15 @@ const CTASection: React.FC = () => {
 
   return (
     <section className="py-20 lg:py-28 bg-gradient-primary relative overflow-hidden">
+      {/* Background Image with Backdrop */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/maktab/photo_2025-12-13_13-22-52.jpg)',
+        }}
+      />
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-md" />
+      
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
