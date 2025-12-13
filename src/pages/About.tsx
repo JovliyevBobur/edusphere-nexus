@@ -41,6 +41,9 @@ const About: React.FC = () => {
               For over 4 years, Tuproqqal'a tuman Ixtisoslashtirilgan maktabi has been a beacon of educational excellence, 
               nurturing young minds and preparing them for the challenges of tomorrow.
             </p>
+            <p className="text-base text-muted-foreground mt-4">
+              Tuproqqal'a tuman ixtisoslashtirilgan maktabi was established in accordance with Decree No. 106 of the President of the Republic of Uzbekistan dated October 21, 2022, and operates within the system of the Agency for Specialized Educational Institutions.
+            </p>
           </motion.div>
         </div>
       </section>
