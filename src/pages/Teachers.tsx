@@ -183,7 +183,7 @@ const Teachers: React.FC = () => {
       phone: '',
     },
     {
-      name: ' Feruza',
+      name: 'Madyorova Feruza',
       subject: 'Uzbek Literature',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
       email: '',
@@ -226,14 +226,14 @@ const Teachers: React.FC = () => {
       phone: '+998 (97) 459-20-88',
     },
     {
-      name: ' Shaxzoda',
+      name: 'Oʹrinboyeva Shaxzoda',
       subject: 'Secretary',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
       email: '',
       phone: '+998 (97) 211-14-43',
     },
     {
-      name: ' Sabohat',
+      name: 'Saparova Sabohat',
       subject: 'Psychologist',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
       email: '',
