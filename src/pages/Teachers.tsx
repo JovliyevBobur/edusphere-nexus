@@ -214,14 +214,14 @@ const Teachers: React.FC = () => {
     {
       name: 'Radjabova Munisa',
       subject: 'Biology',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      image: '/teachers/biologiya.jpg',
       email: '',
       phone: '+998 (88) 525-54-45',
     },
     {
       name: 'Eshmuratova Munojat',
       subject: 'Biology',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop',
+      image: '/teachers/biologiya2.jpg',
       email: '',
       phone: '+998 (97) 459-20-88',
     },
