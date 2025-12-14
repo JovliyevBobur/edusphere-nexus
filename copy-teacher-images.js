@@ -15,7 +15,14 @@ if (!fs.existsSync(publicTeachersDir)) {
 // Copy images
 const imagesToCopy = [
   { src: 'teachers/biologiya.jpg', dest: 'public/teachers/biologiya.jpg' },
-  { src: 'teachers/biologiya2.jpg', dest: 'public/teachers/biologiya2.jpg' }
+  { src: 'teachers/biologiya2.jpg', dest: 'public/teachers/biologiya2.jpg' },
+  { src: 'teachers/kotiba.jpg', dest: 'public/teachers/kotiba.jpg' },
+  { src: 'teachers/matematika5.png', dest: 'public/teachers/matematika5.png' },
+  { src: 'teachers/matematika2.jpg', dest: 'public/teachers/matematika2.jpg' },
+  { src: 'teachers/matematika4.png', dest: 'public/teachers/matematika4.png' },
+  { src: 'teachers/matematika3.jpg', dest: 'public/teachers/matematika3.jpg' },
+  { src: 'teachers/matematika.jpg', dest: 'public/teachers/matematika.jpg' },
+  { src: 'teachers/matematika6.jpg', dest: 'public/teachers/matematika6.jpg' }
 ];
 
 imagesToCopy.forEach(({ src, dest }) => {
