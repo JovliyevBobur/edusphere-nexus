@@ -8,6 +8,7 @@ const Teachers: React.FC = () => {
   const { t } = useLanguage();
 
   const teachers = [
+    // Mathematics - 6 total (1 original + 5 new)
     {
       name: 'Dr. Sarah Johnson',
       subject: 'Mathematics',
@@ -16,53 +17,143 @@ const Teachers: React.FC = () => {
       phone: '+1 (555) 101-0001',
     },
     {
+      name: 'Dr. John Martinez',
+      subject: 'Mathematics',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
+      email: 'john.martinez@brightfuture.edu',
+      phone: '+1 (555) 101-0002',
+    },
+    {
+      name: 'Prof. Anna Thompson',
+      subject: 'Mathematics',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop',
+      email: 'anna.thompson@brightfuture.edu',
+      phone: '+1 (555) 101-0003',
+    },
+    {
+      name: 'Dr. Mark Wilson',
+      subject: 'Mathematics',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop',
+      email: 'mark.wilson@brightfuture.edu',
+      phone: '+1 (555) 101-0004',
+    },
+    {
+      name: 'Prof. Jennifer Lee',
+      subject: 'Mathematics',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
+      email: 'jennifer.lee@brightfuture.edu',
+      phone: '+1 (555) 101-0005',
+    },
+    {
+      name: 'Dr. Christopher Brown',
+      subject: 'Mathematics',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop',
+      email: 'christopher.brown@brightfuture.edu',
+      phone: '+1 (555) 101-0006',
+    },
+    // Physics - 2 total (1 original + 1 new)
+    {
       name: 'Prof. Michael Chen',
       subject: 'Physics',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop',
       email: 'michael.chen@brightfuture.edu',
-      phone: '+1 (555) 101-0002',
+      phone: '+1 (555) 101-0007',
     },
+    {
+      name: 'Dr. Patricia Davis',
+      subject: 'Physics',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop',
+      email: 'patricia.davis@brightfuture.edu',
+      phone: '+1 (555) 101-0008',
+    },
+    // Biology - 1 total (keep original)
     {
       name: 'Dr. Emily Parker',
       subject: 'Biology',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop',
       email: 'emily.parker@brightfuture.edu',
-      phone: '+1 (555) 101-0003',
+      phone: '+1 (555) 101-0009',
     },
+    // English Literature - 5 total (1 original + 4 new)
     {
       name: 'Mr. David Williams',
       subject: 'English Literature',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
       email: 'david.williams@brightfuture.edu',
-      phone: '+1 (555) 101-0004',
+      phone: '+1 (555) 101-0010',
     },
+    {
+      name: 'Ms. Rachel Green',
+      subject: 'English Literature',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop',
+      email: 'rachel.green@brightfuture.edu',
+      phone: '+1 (555) 101-0011',
+    },
+    {
+      name: 'Dr. Thomas Moore',
+      subject: 'English Literature',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop',
+      email: 'thomas.moore@brightfuture.edu',
+      phone: '+1 (555) 101-0012',
+    },
+    {
+      name: 'Prof. Elizabeth White',
+      subject: 'English Literature',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop',
+      email: 'elizabeth.white@brightfuture.edu',
+      phone: '+1 (555) 101-0013',
+    },
+    {
+      name: 'Mr. Kevin Harris',
+      subject: 'English Literature',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop',
+      email: 'kevin.harris@brightfuture.edu',
+      phone: '+1 (555) 101-0014',
+    },
+    // Russian Literature - 3 total (1 changed + 2 new)
     {
       name: 'Ms. Maria Garcia',
-      subject: 'Spanish',
+      subject: 'Russian Literature',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop',
       email: 'maria.garcia@brightfuture.edu',
-      phone: '+1 (555) 101-0005',
+      phone: '+1 (555) 101-0015',
     },
     {
-      name: 'Mr. James Brown',
-      subject: 'Physical Education',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop',
-      email: 'james.brown@brightfuture.edu',
-      phone: '+1 (555) 101-0006',
+      name: 'Dr. Natalia Petrov',
+      subject: 'Russian Literature',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
+      email: 'natalia.petrov@brightfuture.edu',
+      phone: '+1 (555) 101-0016',
     },
+    {
+      name: 'Prof. Alexander Volkov',
+      subject: 'Russian Literature',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
+      email: 'alexander.volkov@brightfuture.edu',
+      phone: '+1 (555) 101-0017',
+    },
+    // Chemistry - 1 total (keep original)
     {
       name: 'Dr. Lisa Anderson',
       subject: 'Chemistry',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
       email: 'lisa.anderson@brightfuture.edu',
-      phone: '+1 (555) 101-0007',
+      phone: '+1 (555) 101-0018',
     },
+    // Computer Science - 2 total (1 original + 1 new)
     {
       name: 'Mr. Robert Taylor',
       subject: 'Computer Science',
       image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop',
       email: 'robert.taylor@brightfuture.edu',
-      phone: '+1 (555) 101-0008',
+      phone: '+1 (555) 101-0019',
+    },
+    {
+      name: 'Dr. Amanda Scott',
+      subject: 'Computer Science',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: 'amanda.scott@brightfuture.edu',
+      phone: '+1 (555) 101-0020',
     },
   ];
 
