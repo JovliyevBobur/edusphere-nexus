@@ -66,13 +66,19 @@ const Teachers: React.FC = () => {
       email: '',
       phone: '+998 (97) 859-01-86',
     },
-    // Biology - 1 total (keep original)
     {
-      name: 'Eshmuratova Munojat',
-      subject: 'Biology',
+      name: '',
+      subject: 'Computer Science',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (99) 739-40-78',
+    },
+    {
+      name: 'Durdiyeva Farzona',
+      subject: 'History',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop',
       email: '',
-      phone: '+998 (97) 459-20-88',
+      phone: '+998 (93) 116-29-94',
     },
     // English Literature - 5 total (1 original + 4 new)
     {
@@ -123,7 +129,7 @@ const Teachers: React.FC = () => {
       subject: 'Russian Literature',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
       email: '',
-      phone: '',
+      phone: '+998 (50) 250-98-68',
     },
     // Chemistry - 1 total (keep original)
     {
@@ -147,6 +153,91 @@ const Teachers: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
       email: '',
       phone: '+998 (99) 739-40-78',
+    },
+    {
+      name: 'Xakimov Xamza',
+      subject: 'Geography',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (94) 110-40-84',
+    },
+    {
+      name: 'Raxmonov Alisher',
+      subject: 'Physical Education',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '',
+    },
+    {
+      name: 'Roʹzibayev Azizbek',
+      subject: '',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '',
+    },
+    {
+      name: ' Hasanboy',
+      subject: 'Art',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '',
+    },
+    {
+      name: ' Feruza',
+      subject: 'Uzbek Literature',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (94) 195-14-19',
+    },
+    {
+      name: 'Avezova Gulbadan',
+      subject: 'Uzbek Literature',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (97) 561-10-37',
+    },
+    {
+      name: 'Azatova Laylo',
+      subject: 'Uzbek Literature',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '',
+    },
+    {
+      name: 'Arkayeva Iroda',
+      subject: 'Uzbek Literature',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '',
+    },
+    // Biology - 1 total (keep original)
+    {
+      name: 'Radjabova Munisa',
+      subject: 'Biology',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (88) 525-54-45',
+    },
+    {
+      name: 'Eshmuratova Munojat',
+      subject: 'Biology',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (97) 459-20-88',
+    },
+    {
+      name: ' Shaxzoda',
+      subject: 'Secretary',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (97) 211-14-43',
+    },
+    {
+      name: ' Sabohat',
+      subject: 'Psychologist',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      email: '',
+      phone: '+998 (97) 299-88-40',
     },
   ];
 
