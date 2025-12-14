@@ -67,11 +67,11 @@ const Teachers: React.FC = () => {
       phone: '+998 (97) 859-01-86',
     },
     {
-      name: '',
-      subject: 'Computer Science',
+      name: ' Mardon',
+      subject: '',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
       email: '',
-      phone: '+998 (99) 739-40-78',
+      phone: '+998 (97) 451-79-39',
     },
     {
       name: 'Durdiyeva Farzona',
