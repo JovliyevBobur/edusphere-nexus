@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -13,42 +13,42 @@ const Teachers: React.FC = () => {
       name: 'Qolandarov Davronbek',
       subject: 'Mathematics',
       image: '/teachers/matematika5.png',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 458-25-87',
     },
     {
       name: 'Sapayev Doniyor',
       subject: 'Mathematics',
       image: '/teachers/matematika2.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 430-80-15',
     },
     {
       name: 'Ibodullayev Sherzod',
       subject: 'Mathematics',
       image: '/teachers/matematika4.png',
-      email: '',
+      telegram: '',
       phone: '+998 (94) 117-90-20',
     },
     {
       name: 'Radjapov Davlatyor',
       subject: 'Mathematics',
       image: '/teachers/matematika3.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (99) 022-60-96',
     },
     {
       name: 'Matchanov Temur',
       subject: 'Mathematics',
       image: '/teachers/matematika.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (99) 747-21-13',
     },
     {
       name: 'Xojixonova Kumush',
       subject: 'Mathematics',
       image: '/teachers/matematika6.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (94) 676-48-46',
     },
     // Physics - 2 total (1 original + 1 new)
@@ -56,28 +56,28 @@ const Teachers: React.FC = () => {
       name: 'Matmurotov Quvandiq',
       subject: 'Physics',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 211-44-71',
     },
     {
       name: 'Jabborov Vohidjon',
       subject: 'Physics',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 859-01-86',
     },
     {
       name: ' Mardon',
       subject: '',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 451-79-39',
     },
     {
       name: 'Durdiyeva Farzona',
       subject: 'History',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (93) 116-29-94',
     },
     // English Literature - 5 total (1 original + 4 new)
@@ -85,28 +85,28 @@ const Teachers: React.FC = () => {
       name: 'Babajonova Dilfuza',
       subject: 'English Literature',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (99) 964-11-86',
     },
     {
       name: 'Urunova Malohat',
       subject: 'English Literature',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 130-56-88',
     },
     {
       name: 'Axmedova Shoira',
       subject: 'English Literature',
       image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 451-51-81',
     },
     {
       name: 'Madraimova Farangiz',
       subject: 'English Literature',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '',
     },
     // Russian Literature - 3 total (1 changed + 2 new)
@@ -114,21 +114,21 @@ const Teachers: React.FC = () => {
       name: 'Bekturdiyev Gʹayrat',
       subject: 'Russian Literature',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (99) 747-21-13 ',
     },
     {
       name: 'Sultonova Maftuna',
       subject: 'Russian Literature',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (95) 361-80-95',
     },
     {
       name: 'Baxtiyorova Dinara',
       subject: 'Russian Literature',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (50) 250-98-68',
     },
     // Chemistry - 1 total (keep original)
@@ -136,7 +136,7 @@ const Teachers: React.FC = () => {
       name: 'Allaberganova Gulbahor',
       subject: 'Chemistry',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (99) 865-74-38',
     },
     // Computer Science - 2 total (1 original + 1 new)
@@ -144,70 +144,70 @@ const Teachers: React.FC = () => {
       name: 'Raximova Nifular',
       subject: 'Computer Science',
       image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 790-01-38',
     },
     {
       name: 'Ataboyeva Mahliyo',
       subject: 'Computer Science',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (99) 739-40-78',
     },
     {
       name: 'Xakimov Xamza',
       subject: 'Geography',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (94) 110-40-84',
     },
     {
       name: 'Raxmonov Alisher',
       subject: 'Physical Education',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '',
     },
     {
       name: 'Roʹzibayev Azizbek',
       subject: '',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '',
     },
     {
       name: ' Hasanboy',
       subject: 'Art',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '',
     },
     {
       name: 'Madyorova Feruza',
       subject: 'Uzbek Literature',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (94) 195-14-19',
     },
     {
       name: 'Avezova Gulbadan',
       subject: 'Uzbek Literature',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 561-10-37',
     },
     {
       name: 'Azatova Laylo',
       subject: 'Uzbek Literature',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '',
     },
     {
       name: 'Arkayeva Iroda',
       subject: 'Uzbek Literature',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '',
     },
     // Biology - 1 total (keep original)
@@ -215,28 +215,28 @@ const Teachers: React.FC = () => {
       name: 'Radjabova Munisa',
       subject: 'Biology',
       image: '/teachers/biologiya.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (88) 525-54-45',
     },
     {
       name: 'Eshmuratova Munojat',
       subject: 'Biology',
       image: '/teachers/biologiya2.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 459-20-88',
     },
     {
       name: 'Oʹrinboyeva Shaxzoda',
       subject: 'Secretary',
       image: '/teachers/kotiba.jpg',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 211-14-43',
     },
     {
       name: 'Saparova Sabohat',
       subject: 'Psychologist',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
-      email: '',
+      telegram: '',
       phone: '+998 (97) 299-88-40',
     },
   ];
@@ -301,20 +301,26 @@ const Teachers: React.FC = () => {
                   {teacher.subject}
                 </p>
                 <div className="flex justify-center gap-2">
-                  <a
-                    href={`mailto:${teacher.email}`}
-                    className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                    title="Email"
-                  >
-                    <Mail className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={`tel:${teacher.phone}`}
-                    className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                    title="Phone"
-                  >
-                    <Phone className="w-4 h-4" />
-                  </a>
+                  {teacher.telegram && (
+                    <a
+                      href={teacher.telegram.startsWith('http') ? teacher.telegram : `https://t.me/${teacher.telegram.replace('@', '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                      title="Telegram"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                    </a>
+                  )}
+                  {teacher.phone && (
+                    <a
+                      href={`tel:${teacher.phone}`}
+                      className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                      title="Phone"
+                    >
+                      <Phone className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
