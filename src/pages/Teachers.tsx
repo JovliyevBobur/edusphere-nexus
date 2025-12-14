@@ -13,7 +13,7 @@ const Teachers: React.FC = () => {
       name: 'Qolandarov Davronbek',
       subject: 'Mathematics',
       image: '/teachers/matematika5.png',
-      telegram: '',
+      telegram: '@Qalandarov_Davronbek',
       phone: '+998 (97) 458-25-87',
     },
     {
