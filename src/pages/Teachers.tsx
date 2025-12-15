@@ -9,28 +9,28 @@ const Teachers: React.FC = () => {
 
   const leaders = [
     {
-      name: 'Matyoqubova Lobar',
+      name: 'Matyoqubova Lobarxon',
       role: 'Direktor',
-      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop',
-      phone: '+998 (90) 000-00-01',
+      image: '/teachers/deriktor.jpg',
+      phone: '',
     },
     {
       name: 'Kenjayev Maqsudbek',
       role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
-      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop',
-      phone: '+998 (90) 000-00-02',
+      image: '',
+      phone: '',
     },
     {
       name: '',
       role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
       image: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&h=400&fit=crop',
-      phone: '+998 (90) 000-00-03',
+      phone: '',
     },
     {
       name: '',
       role: 'Direktor o‘rinbosari (tarbiyaviy)',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
-      phone: '+998 (90) 000-00-04',
+      phone: '',
     },
   ];
 
