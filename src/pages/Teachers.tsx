@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Phone } from 'lucide-react';
+import { Phone, Send } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -12,25 +12,29 @@ const Teachers: React.FC = () => {
       name: 'Matyoqubova Lobarxon',
       role: 'Direktor',
       image: '/teachers/deriktor.jpg',
-      phone: '',
+      phone: '+998 (90) 000-00-01',
+      telegram: '@Lobarxon_Direktor',
     },
     {
       name: 'Kenjayev Maqsudbek',
       role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
       image: '/teachers/zam d.JPG',
-      phone: '',
+      phone: '+998 (90) 000-00-02',
+      telegram: '@Maqsudbek_K',
     },
     {
       name: 'Matyoqubov Ro‘zmatjon',
       role: 'Direktor maslahatchisi',
       image: '/teachers/maslahatchi.jpg',
-      phone: '',
+      phone: '+998 (90) 000-00-03',
+      telegram: '@Rozmatjon_M',
     },
     {
       name: 'Otamurotov Farhod',
       role: 'Direktor o‘rinbosari (o’quv ishlari)',
       image: '/teachers/zavuch.JPG',
-      phone: '',
+      phone: '+998 (90) 000-00-04',
+      telegram: '@Farhod_O',
     },
   ];
 
@@ -330,16 +334,28 @@ const Teachers: React.FC = () => {
                     {leader.name}
                   </h3>
                   <p className="text-primary text-sm font-medium mb-3">{leader.role}</p>
-                  {leader.phone && (
-                    <div className="flex justify-center">
+                  <div className="flex justify-center gap-2">
+                    {leader.telegram && (
+                      <a
+                        href={leader.telegram.startsWith('http') ? leader.telegram : `https://t.me/${leader.telegram.replace('@', '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition"
+                        title="Telegram"
+                      >
+                        <Send className="w-4 h-4" />
+                      </a>
+                    )}
+                    {leader.phone && (
                       <a
                         href={`tel:${leader.phone}`}
-                        className="px-3 py-2 text-sm rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition"
+                        className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition"
+                        title="Phone"
                       >
-                        {leader.phone}
+                        <Phone className="w-4 h-4" />
                       </a>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -379,10 +395,10 @@ const Teachers: React.FC = () => {
                       href={teacher.telegram.startsWith('http') ? teacher.telegram : `https://t.me/${teacher.telegram.replace('@', '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                      className="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                       title="Telegram"
                     >
-                      <MessageCircle className="w-4 h-4" />
+                      <Send className="w-4 h-4" />
                     </a>
                   )}
                   {teacher.phone && (
