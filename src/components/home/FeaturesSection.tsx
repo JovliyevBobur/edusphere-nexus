@@ -24,18 +24,18 @@ const FeaturesSection: React.FC = () => {
     },
     {
       icon: Lightbulb,
-      title: 'Innovation Lab',
-      description: 'Cutting-edge technology labs where students explore robotics, AI, and creative design.',
+      title: t('innovationLab'),
+      description: t('innovationLabDesc'),
     },
     {
       icon: Shield,
-      title: 'Safe Environment',
-      description: 'A secure, nurturing campus with 24/7 security and caring staff members.',
+      title: t('safeEnvironment'),
+      description: t('safeEnvironmentDesc'),
     },
     {
       icon: Heart,
-      title: 'Holistic Growth',
-      description: 'Balanced focus on academics, arts, sports, and personal development.',
+      title: t('holisticGrowth'),
+      description: t('holisticGrowthDesc'),
     },
   ];
 
@@ -75,10 +75,10 @@ const FeaturesSection: React.FC = () => {
             {t('whyChooseUs')}
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            Excellence in Every Aspect
+            {t('excellenceInEveryAspect')}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Discover what makes Tuproqqal'a tuman Ixtisoslashtirilgan maktabi the perfect choice for your child's educational journey.
+            {t('discoverWhatMakes')}
           </p>
         </motion.div>
 

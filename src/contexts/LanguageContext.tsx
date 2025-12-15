@@ -51,12 +51,17 @@ const translations: Translations = {
   holisticGrowthDesc: { en: 'Balanced focus on academics, arts, sports, and personal development.', uz: "Akademik, san'at, sport va shaxsiy rivojlanishga muvozanatli e'tibor.", ru: 'Сбалансированный фокус на учёбе, искусстве, спорте и личностном развитии.' },
   excellenceInEveryAspect: { en: 'Excellence in Every Aspect', uz: 'Har sohada mukammallik', ru: 'Совершенство во всём' },
   discoverWhatMakes: { en: "Discover what makes Tuproqqal'a tuman Ixtisoslashtirilgan maktabi the perfect choice for your child's educational journey.", uz: "Tuproqqal'a tuman Ixtisoslashtirilgan maktabi farzandingizning ta'lim sayohati uchun nima uchun eng yaxshi tanlov ekanligini bilib oling.", ru: "Узнайте, почему Tuproqqal'a tuman Ixtisoslashtirilgan maktabi — идеальный выбор для образовательного пути вашего ребёнка." },
+  ctaTitle: { en: 'Ready to Join Our Community?', uz: 'Jamiyatimizga qo‘shilishga tayyormisiz?', ru: 'Готовы присоединиться к нашему сообществу?' },
+  ctaDescription: { en: "Take the first step towards an exceptional education. Apply now and become part of the Tuproqqal'a tuman Ixtisoslashtirilgan maktabi family.", uz: "Ajoyib ta'lim sari birinchi qadamni qo'ying. Hozir ariza bering va Tuproqqal'a tuman Ixtisoslashtirilgan maktabi oilasining bir qismiga aylaning.", ru: 'Сделайте первый шаг к отличному образованию. Подайте заявку сейчас и станьте частью семьи Tuproqqal\'a tuman Ixtisoslashtirilgan maktabi.' },
   
   // About
   ourMission: { en: 'Our Mission', uz: 'Bizning vazifamiz', ru: 'Наша миссия' },
   ourVision: { en: 'Our Vision', uz: 'Bizning vizyonimiz', ru: 'Наше видение' },
   ourHistory: { en: 'Our History', uz: 'Bizning tarixmiz', ru: 'Наша история' },
   missionText: { en: 'To provide an inclusive, stimulating learning environment that empowers students to reach their full potential and become responsible global citizens.', uz: "O'quvchilarga o'z salohiyatlarini to'liq ro'yobga chiqarish va mas'uliyatli global fuqarolarga aylanishlarini ta'minlaydigan inklyuziv, rag'batlantiruvchi ta'lim muhitini taqdim etish.", ru: 'Обеспечить инклюзивную, стимулирующую учебную среду, которая позволяет учащимся полностью раскрыть свой потенциал и стать ответственными гражданами мира.' },
+  ourAchievements: { en: 'Our Achievements', uz: 'Bizning yutuqlarimiz', ru: 'Наши достижения' },
+  leadershipTitle: { en: 'Our Leadership', uz: 'Rahbariyatimiz', ru: 'Наше руководство' },
+  leadershipSubtitle: { en: 'Meet the dedicated leaders guiding our institution.', uz: "Muassasamizni boshqarayotgan fidoyi rahbarlar bilan tanishing.", ru: 'Познакомьтесь с преданными лидерами, управляющими нашим учреждением.' },
   visionText: { en: 'To be recognized as a leading educational institution that nurtures innovation, critical thinking, and lifelong learning.', uz: "Innovatsiyalarni, tanqidiy fikrlashni va umrbod ta'limni rivojlantiradigan yetakchi ta'lim muassasasi sifatida tan olinish.", ru: 'Быть признанным ведущим образовательным учреждением, развивающим инновации, критическое мышление и непрерывное обучение.' },
   buildingFuturesSince: { en: 'Building Futures Since 2022', uz: '2022 yildan beri kelajakni quramiz', ru: 'Строим будущее с 2022 года' },
   aboutHeroDescription: { en: "For over 4 years, Tuproqqal'a tuman Ixtisoslashtirilgan maktabi has been a beacon of educational excellence, nurturing young minds and preparing them for the challenges of tomorrow.", uz: "4 yildan ortiq davomida Tuproqqal'a tuman Ixtisoslashtirilgan maktabi ta'lim mukammalligining yorqin yulduziga aylandi, yosh aqllarni tarbiyaladi va ularni ertangi qiyinchiliklarga tayyorladi.", ru: "Более 4 лет Tuproqqal'a tuman Ixtisoslashtirilган maktabi является маяком образовательного совершенства, воспитывая молодые умы и готовя их к вызовам завтрашнего дня." },
@@ -86,6 +91,7 @@ const translations: Translations = {
   
   // Contact
   getInTouch: { en: 'Get In Touch', uz: 'Bog\'lanish', ru: 'Связаться' },
+  contactHeroDescription: { en: "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.", uz: "Savollaringiz bormi? Biz sizni eshitishni istaymiz. Xabar yuboring va imkon qadar tez javob beramiz.", ru: 'Есть вопросы? Мы будем рады вам ответить. Отправьте сообщение, и мы ответим как можно скорее.' },
   sendMessage: { en: 'Send Message', uz: 'Xabar yuborish', ru: 'Отправить' },
   yourName: { en: 'Your Name', uz: 'Ismingiz', ru: 'Ваше имя' },
   yourEmail: { en: 'Your Email', uz: 'Elektron pochtangiz', ru: 'Ваш email' },
@@ -94,6 +100,9 @@ const translations: Translations = {
   address: { en: 'Address', uz: 'Manzil', ru: 'Адрес' },
   phone: { en: 'Phone', uz: 'Telefon', ru: 'Телефон' },
   email: { en: 'Email', uz: 'Elektron pochta', ru: 'Email' },
+  workingHours: { en: 'Working Hours', uz: 'Ish vaqti', ru: 'Часы работы' },
+  workingHoursLine1: { en: 'Mon - Fri: 8:00 AM - 5:00 PM', uz: 'Dush - Jum: 08:00 - 17:00', ru: 'Пн - Пт: 08:00 - 17:00' },
+  workingHoursLine2: { en: 'Sat: 9:00 AM - 1:00 PM', uz: 'Shanba: 09:00 - 13:00', ru: 'Сб: 09:00 - 13:00' },
   
   // Footer
   quickLinks: { en: 'Quick Links', uz: 'Tezkor havolalar', ru: 'Быстрые ссылки' },

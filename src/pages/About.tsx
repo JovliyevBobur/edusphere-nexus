@@ -9,28 +9,28 @@ const About: React.FC = () => {
   const { t } = useLanguage();
 
   const achievements = [
-    { icon: Users, value: '295+', label: 'Students' },
-    { icon: BookOpen, value: '29+', label: 'Teachers' },
-    { icon: Calendar, value: '4+', label: 'Years of Experience' },
-    { icon: Award, value: '50+', label: 'Awards Won' },
-    { icon: GraduationCap, value: '95%', label: 'University Placement' },
+    { icon: Users, value: '295+', label: t('students') },
+    { icon: BookOpen, value: '29+', label: t('teachersCount') },
+    { icon: Calendar, value: '4+', label: t('yearsExp') },
+    { icon: Award, value: '50+', label: t('awards') },
+    { icon: GraduationCap, value: '95%', label: t('universityAdmission100') },
   ];
 
   const leadership = [
     {
       name: 'Jovliyev Bobur',
       image: '/teachers/Bobur.jpg',
-      role: 'Direktor',
+      role: t('directorRole'),
     },
     {
       name: 'Qurbonboyev Maqsadbek',
       image: '/teachers/Maqsadbek.jpg',
-      role: "Direktor o'rinbosari",
+      role: t('viceDirectorAcademic'),
     },
     {
       name: "Norimov G'anijon",
       image: '/teachers/Ganijon.JPG',
-      role: 'Zavuch',
+      role: t('viceDirectorSpiritual'),
     },
   ];
 
@@ -64,14 +64,13 @@ const About: React.FC = () => {
               {t('about')}
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mt-3 mb-6">
-              Building Futures Since 2022
+              {t('buildingFuturesSince')}
             </h1>
             <p className="text-lg text-muted-foreground">
-              For over 4 years, Tuproqqal'a tuman Ixtisoslashtirilgan maktabi has been a beacon of educational excellence, 
-              nurturing young minds and preparing them for the challenges of tomorrow.
+              {t('aboutHeroDescription')}
             </p>
             <p className="text-base text-muted-foreground mt-4">
-              Tuproqqal'a tuman ixtisoslashtirilgan maktabi was established in accordance with Decree No. 106 of the President of the Republic of Uzbekistan dated October 21, 2022, and operates within the system of the Agency for Specialized Educational Institutions.
+              {t('aboutEstablishment')}
             </p>
           </motion.div>
         </div>
@@ -455,7 +454,7 @@ const About: React.FC = () => {
             className="text-center mb-10"
           >
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground">
-              Our Achievements
+              {t('ourAchievements')}
             </h2>
           </motion.div>
           <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
@@ -489,10 +488,10 @@ const About: React.FC = () => {
             className="text-center mb-12"
           >
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-foreground">
-              Our Leadership
+              {t('leadershipTitle')}
             </h2>
             <p className="text-muted-foreground mt-3">
-              Meet the dedicated leaders guiding our institution.
+              {t('leadershipSubtitle')}
             </p>
           </motion.div>
           <div className="grid sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">

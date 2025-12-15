@@ -55,8 +55,8 @@ const Contact: React.FC = () => {
     },
     {
       icon: Clock,
-      title: 'Working Hours',
-      details: ['Mon - Fri: 8:00 AM - 5:00 PM', 'Sat: 9:00 AM - 1:00 PM'],
+      title: t('workingHours'),
+      details: [t('workingHoursLine1'), t('workingHoursLine2')],
     },
   ];
 
@@ -86,8 +86,7 @@ const Contact: React.FC = () => {
               {t('getInTouch')}
             </h1>
             <p className="text-lg text-muted-foreground">
-              Have questions? We'd love to hear from you. Send us a message 
-              and we'll respond as soon as possible.
+              {t('contactHeroDescription')}
             </p>
           </motion.div>
         </div>
