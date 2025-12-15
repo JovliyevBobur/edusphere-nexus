@@ -17,9 +17,21 @@ const About: React.FC = () => {
   ];
 
   const leadership = [
-    { name: 'Jovliyev Bobur', image: '/teachers/Bobur.jpg' },
-    { name: 'Qurbonboyev Maqsadbek', image: '/teachers/Maqsadbek.jpg' },
-    { name: 'Norimov G′anijon', image: '/teachers/Ganijon.JPG' },
+    {
+      name: 'Jovliyev Bobur',
+      image: '/teachers/Bobur.jpg',
+      role: 'Direktor',
+    },
+    {
+      name: 'Qurbonboyev Maqsadbek',
+      image: '/teachers/Maqsadbek.jpg',
+      role: "Direktor o'rinbosari",
+    },
+    {
+      name: "Norimov G'anijon",
+      image: '/teachers/Ganijon.JPG',
+      role: 'Zavuch',
+    },
   ];
 
   const teacherCategoryData = [
