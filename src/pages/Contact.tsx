@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       title: t('address'),
-      details: ['123 Education Street', 'Learning City, LC 12345'],
+      details: ['Tuproqqal\'a tuman, Sharlauq MFY, Vatanparvar ko\'chasi 14-uy'],
     },
     {
       icon: Phone,
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: Clock,
-      title: 'Office Hours',
+      title: 'Working Hours',
       details: ['Mon - Fri: 8:00 AM - 5:00 PM', 'Sat: 9:00 AM - 1:00 PM'],
     },
   ];
@@ -218,7 +218,7 @@ const Contact: React.FC = () => {
               {/* Map */}
               <div className="rounded-xl overflow-hidden border border-border/50">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.00369368400567!3d40.71312937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e28c1191%3A0x49f75d3281df052a!2sCity%20Hall%2C%20New%20York%2C%20NY%2010007!5e0!3m2!1sen!2sus!4v1639084469945!5m2!1sen!2sus"
+                  src="https://www.google.com/maps?q=Tuproqqal%27a%20tuman,%20Sharlauq%20MFY,%20Vatanparvar%20ko%27chasi%2014-uy&z=16&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
