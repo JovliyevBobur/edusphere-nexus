@@ -27,7 +27,9 @@ const imagesToCopy = [
   { src: 'teachers/fizika1.png', dest: 'public/teachers/fizika1.png' },
   { src: 'teachers/kimyo.jpg', dest: 'public/teachers/kimyo.jpg' },
   { src: 'teachers/rus tili.jpg', dest: 'public/teachers/rus tili.jpg' },
-  { src: 'teachers/deriktor.jpg', dest: 'public/teachers/deriktor.jpg' }
+  { src: 'teachers/deriktor.jpg', dest: 'public/teachers/deriktor.jpg' },
+  { src: 'teachers/zam d.JPG', dest: 'public/teachers/zam d.JPG' },
+  { src: 'teachers/maslahatchi.jpg', dest: 'public/teachers/maslahatchi.jpg' }
 ];
 
 imagesToCopy.forEach(({ src, dest }) => {

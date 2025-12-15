@@ -17,13 +17,13 @@ const Teachers: React.FC = () => {
     {
       name: 'Kenjayev Maqsudbek',
       role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
-      image: '',
+      image: '/teachers/zam d.JPG',
       phone: '',
     },
     {
-      name: '',
-      role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
-      image: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&h=400&fit=crop',
+      name: 'Matyoqubov Ro‘zmatjon',
+      role: 'Direktor maslahatchisi',
+      image: '/teachers/maslahatchi.jpg',
       phone: '',
     },
     {
