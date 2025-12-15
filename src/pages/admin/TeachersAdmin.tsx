@@ -29,31 +29,20 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-interface TeacherItem {
-  id: string;
-  name: string;
-  subject_uz: string;
-  subject_ru: string;
-  subject_en: string;
-  bio_uz: string | null;
-  bio_ru: string | null;
-  bio_en: string | null;
-  email: string | null;
-  phone: string | null;
-  image_url: string | null;
-  published: boolean | null;
-  created_at: string;
-}
+type TeacherRow = Tables<'teachers'>;
+type TeacherInsert = TablesInsert<'teachers'>;
+type TeacherUpdate = TablesUpdate<'teachers'>;
 
 const TeachersAdmin: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState<TeacherItem | null>(null);
+  const [editingItem, setEditingItem] = useState<TeacherRow | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const { toast } = useToast();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const queryClient = useQueryClient();
 
   const { data: teachers, isLoading } = useQuery({
@@ -65,20 +54,20 @@ const TeachersAdmin: React.FC = () => {
         .order('name');
 
       if (error) throw error;
-      return data as TeacherItem[];
+      return data as TeacherRow[];
     },
   });
 
   const saveMutation = useMutation({
-    mutationFn: async (item: Partial<TeacherItem>) => {
+    mutationFn: async (item: TeacherInsert | TeacherUpdate) => {
       if (editingItem?.id) {
         const { error } = await supabase
           .from('teachers')
-          .update(item)
+          .update(item as TeacherUpdate)
           .eq('id', editingItem.id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from('teachers').insert([item]);
+        const { error } = await supabase.from('teachers').insert([item as TeacherInsert]);
         if (error) throw error;
       }
     },
@@ -87,14 +76,14 @@ const TeachersAdmin: React.FC = () => {
       setDialogOpen(false);
       setEditingItem(null);
       toast({
-        title: 'Muvaffaqiyatli!',
-        description: editingItem ? 'O\'qituvchi yangilandi' : 'O\'qituvchi qo\'shildi',
+        title: t('success'),
+        description: editingItem ? t('updated') : t('added'),
       });
     },
     onError: (error: Error) => {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
+        title: t('error'),
         description: error.message,
       });
     },
@@ -110,8 +99,8 @@ const TeachersAdmin: React.FC = () => {
       setDeleteDialogOpen(false);
       setDeletingId(null);
       toast({
-        title: 'O\'chirildi',
-        description: 'O\'qituvchi o\'chirildi',
+        title: t('deleted'),
+        description: t('deleted'),
       });
     },
   });
@@ -133,7 +122,7 @@ const TeachersAdmin: React.FC = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     
-    const item = {
+    const item: TeacherInsert = {
       name: formData.get('name') as string,
       subject_uz: formData.get('subject_uz') as string,
       subject_ru: formData.get('subject_ru') as string,
@@ -150,7 +139,7 @@ const TeachersAdmin: React.FC = () => {
     saveMutation.mutate(item);
   };
 
-  const getSubject = (item: TeacherItem) => {
+  const getSubject = (item: TeacherRow) => {
     if (language === 'uz') return item.subject_uz;
     if (language === 'ru') return item.subject_ru;
     return item.subject_en;
@@ -161,26 +150,26 @@ const TeachersAdmin: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-display font-bold">O'qituvchilar</h1>
-            <p className="text-muted-foreground">O'qituvchilar boshqaruvi</p>
+            <h1 className="text-2xl font-display font-bold">{t('adminTeachers')}</h1>
+            <p className="text-muted-foreground">{t('teachers')}</p>
           </div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button onClick={() => setEditingItem(null)}>
                 <Plus className="w-4 h-4 mr-2" />
-                Qo'shish
+                {t('add')}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>
-                  {editingItem ? 'O\'qituvchini tahrirlash' : 'Yangi o\'qituvchi'}
+                  {editingItem ? t('edit') : t('add')}
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Ism</Label>
+                    <Label htmlFor="name">{t('yourName')}</Label>
                     <Input
                       id="name"
                       name="name"
@@ -189,7 +178,7 @@ const TeachersAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="image_url">Rasm URL</Label>
+                    <Label htmlFor="image_url">{t('imageUrl')}</Label>
                     <Input
                       id="image_url"
                       name="image_url"
@@ -200,7 +189,7 @@ const TeachersAdmin: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="subject_uz">Fan (UZ)</Label>
+                    <Label htmlFor="subject_uz">{t('descriptionUz')}</Label>
                     <Input
                       id="subject_uz"
                       name="subject_uz"
@@ -209,7 +198,7 @@ const TeachersAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject_ru">Fan (RU)</Label>
+                    <Label htmlFor="subject_ru">{t('descriptionRu')}</Label>
                     <Input
                       id="subject_ru"
                       name="subject_ru"
@@ -218,7 +207,7 @@ const TeachersAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="subject_en">Fan (EN)</Label>
+                    <Label htmlFor="subject_en">{t('descriptionEn')}</Label>
                     <Input
                       id="subject_en"
                       name="subject_en"
@@ -229,7 +218,7 @@ const TeachersAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="bio_uz">Biografiya (UZ)</Label>
+                  <Label htmlFor="bio_uz">Bio (UZ)</Label>
                   <Textarea
                     id="bio_uz"
                     name="bio_uz"
@@ -239,7 +228,7 @@ const TeachersAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="bio_ru">Biografiya (RU)</Label>
+                  <Label htmlFor="bio_ru">Bio (RU)</Label>
                   <Textarea
                     id="bio_ru"
                     name="bio_ru"
@@ -249,7 +238,7 @@ const TeachersAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="bio_en">Biografiya (EN)</Label>
+                  <Label htmlFor="bio_en">Bio (EN)</Label>
                   <Textarea
                     id="bio_en"
                     name="bio_en"
@@ -260,7 +249,7 @@ const TeachersAdmin: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">{t('email')}</Label>
                     <Input
                       id="email"
                       name="email"
@@ -269,7 +258,7 @@ const TeachersAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Telefon</Label>
+                    <Label htmlFor="phone">{t('phone')}</Label>
                     <Input
                       id="phone"
                       name="phone"
@@ -284,7 +273,7 @@ const TeachersAdmin: React.FC = () => {
                     name="published"
                     defaultChecked={editingItem?.published ?? false}
                   />
-                  <Label htmlFor="published">Nashr qilish</Label>
+                  <Label htmlFor="published">{t('publish')}</Label>
                 </div>
 
                 <div className="flex justify-end gap-2">
@@ -293,13 +282,13 @@ const TeachersAdmin: React.FC = () => {
                     variant="outline"
                     onClick={() => setDialogOpen(false)}
                   >
-                    Bekor qilish
+                    {t('cancel')}
                   </Button>
                   <Button type="submit" disabled={saveMutation.isPending}>
                     {saveMutation.isPending && (
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     )}
-                    Saqlash
+                    {t('save')}
                   </Button>
                 </div>
               </form>
@@ -391,17 +380,17 @@ const TeachersAdmin: React.FC = () => {
         <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>O'chirishni tasdiqlaysizmi?</AlertDialogTitle>
+              <AlertDialogTitle>{t('confirmDelete')}</AlertDialogTitle>
               <AlertDialogDescription>
-                Bu amalni qaytarib bo'lmaydi. O'qituvchi butunlay o'chiriladi.
+                {t('cannotUndo')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
+              <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => deletingId && deleteMutation.mutate(deletingId)}
               >
-                O'chirish
+                {t('delete')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

@@ -27,17 +27,10 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-interface GalleryItem {
-  id: string;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  image_url: string;
-  category: string | null;
-  published: boolean | null;
-  created_at: string;
-}
+type GalleryRow = Tables<'gallery'>;
+type GalleryInsert = TablesInsert<'gallery'>;
 
 const GalleryAdmin: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -47,7 +40,7 @@ const GalleryAdmin: React.FC = () => {
   const [previewUrl, setPreviewUrl] = useState<string>('');
 
   const { toast } = useToast();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const queryClient = useQueryClient();
 
   const { data: gallery, isLoading } = useQuery({
@@ -59,12 +52,12 @@ const GalleryAdmin: React.FC = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      return data as GalleryItem[];
+      return data as GalleryRow[];
     },
   });
 
   const saveMutation = useMutation({
-    mutationFn: async (item: Partial<GalleryItem>) => {
+    mutationFn: async (item: GalleryInsert) => {
       const { error } = await supabase.from('gallery').insert([item]);
       if (error) throw error;
     },
@@ -73,14 +66,14 @@ const GalleryAdmin: React.FC = () => {
       setDialogOpen(false);
       setPreviewUrl('');
       toast({
-        title: 'Muvaffaqiyatli!',
-        description: 'Rasm qo\'shildi',
+        title: t('success'),
+        description: t('added'),
       });
     },
     onError: (error: Error) => {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
+        title: t('error'),
         description: error.message,
       });
     },
@@ -96,8 +89,8 @@ const GalleryAdmin: React.FC = () => {
       setDeleteDialogOpen(false);
       setDeletingId(null);
       toast({
-        title: 'O\'chirildi',
-        description: 'Rasm o\'chirildi',
+        title: t('deleted'),
+        description: t('deleted'),
       });
     },
   });
@@ -139,7 +132,7 @@ const GalleryAdmin: React.FC = () => {
     } catch (error: any) {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
+        title: t('error'),
         description: error.message,
       });
     } finally {
@@ -155,13 +148,13 @@ const GalleryAdmin: React.FC = () => {
     if (!imageUrl) {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
-        description: 'Rasm URL kiritilmadi',
+        title: t('error'),
+        description: 'Image URL is required',
       });
       return;
     }
 
-    const item = {
+    const item: GalleryInsert = {
       title_uz: formData.get('title_uz') as string,
       title_ru: formData.get('title_ru') as string,
       title_en: formData.get('title_en') as string,
@@ -173,7 +166,7 @@ const GalleryAdmin: React.FC = () => {
     saveMutation.mutate(item);
   };
 
-  const getTitle = (item: GalleryItem) => {
+  const getTitle = (item: GalleryRow) => {
     if (language === 'uz') return item.title_uz;
     if (language === 'ru') return item.title_ru;
     return item.title_en;
@@ -184,23 +177,23 @@ const GalleryAdmin: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-display font-bold">Galereya</h1>
-            <p className="text-muted-foreground">Rasmlar boshqaruvi</p>
+            <h1 className="text-2xl font-display font-bold">{t('adminGallery')}</h1>
+            <p className="text-muted-foreground">{t('gallery')}</p>
           </div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button>
                 <Plus className="w-4 h-4 mr-2" />
-                Qo'shish
+                {t('add')}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-lg">
               <DialogHeader>
-                <DialogTitle>Yangi rasm</DialogTitle>
+                <DialogTitle>{t('add')}</DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
-                  <Label>Rasm yuklash</Label>
+                  <Label>{t('imageUrl')}</Label>
                   <div className="border-2 border-dashed border-border rounded-lg p-4 text-center">
                     {previewUrl ? (
                       <img
@@ -223,13 +216,13 @@ const GalleryAdmin: React.FC = () => {
                       htmlFor="file-upload"
                       className="cursor-pointer text-primary hover:underline"
                     >
-                      {uploading ? 'Yuklanmoqda...' : 'Rasm tanlang'}
+                      {uploading ? 'Loading...' : 'Select image'}
                     </Label>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="image_url">Yoki URL kiriting</Label>
+                  <Label htmlFor="image_url">Or enter URL</Label>
                   <Input
                     id="image_url"
                     name="image_url"
@@ -240,27 +233,27 @@ const GalleryAdmin: React.FC = () => {
 
                 <div className="grid grid-cols-1 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="title_uz">Sarlavha (UZ)</Label>
+                    <Label htmlFor="title_uz">{t('titleUz')}</Label>
                     <Input id="title_uz" name="title_uz" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="title_ru">Sarlavha (RU)</Label>
+                    <Label htmlFor="title_ru">{t('titleRu')}</Label>
                     <Input id="title_ru" name="title_ru" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="title_en">Sarlavha (EN)</Label>
+                    <Label htmlFor="title_en">{t('titleEn')}</Label>
                     <Input id="title_en" name="title_en" required />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="category">Kategoriya</Label>
+                  <Label htmlFor="category">{t('category')}</Label>
                   <Input id="category" name="category" defaultValue="general" />
                 </div>
 
                 <div className="flex items-center gap-2">
                   <Switch id="published" name="published" />
-                  <Label htmlFor="published">Nashr qilish</Label>
+                  <Label htmlFor="published">{t('publish')}</Label>
                 </div>
 
                 <div className="flex justify-end gap-2">
@@ -272,13 +265,13 @@ const GalleryAdmin: React.FC = () => {
                       setPreviewUrl('');
                     }}
                   >
-                    Bekor qilish
+                    {t('cancel')}
                   </Button>
                   <Button type="submit" disabled={saveMutation.isPending || uploading}>
                     {saveMutation.isPending && (
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     )}
-                    Saqlash
+                    {t('save')}
                   </Button>
                 </div>
               </form>
@@ -341,17 +334,17 @@ const GalleryAdmin: React.FC = () => {
         <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>O'chirishni tasdiqlaysizmi?</AlertDialogTitle>
+              <AlertDialogTitle>{t('confirmDelete')}</AlertDialogTitle>
               <AlertDialogDescription>
-                Bu amalni qaytarib bo'lmaydi. Rasm butunlay o'chiriladi.
+                {t('cannotUndo')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
+              <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => deletingId && deleteMutation.mutate(deletingId)}
               >
-                O'chirish
+                {t('delete')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
