@@ -28,28 +28,20 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-interface DepartmentItem {
-  id: string;
-  name_uz: string;
-  name_ru: string;
-  name_en: string;
-  description_uz: string;
-  description_ru: string;
-  description_en: string;
-  icon: string | null;
-  published: boolean | null;
-  created_at: string;
-}
+type DepartmentRow = Tables<'departments'>;
+type DepartmentInsert = TablesInsert<'departments'>;
+type DepartmentUpdate = TablesUpdate<'departments'>;
 
 const DepartmentsAdmin: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState<DepartmentItem | null>(null);
+  const [editingItem, setEditingItem] = useState<DepartmentRow | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const { toast } = useToast();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const queryClient = useQueryClient();
 
   const { data: departments, isLoading } = useQuery({
@@ -61,20 +53,20 @@ const DepartmentsAdmin: React.FC = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      return data as DepartmentItem[];
+      return data as DepartmentRow[];
     },
   });
 
   const saveMutation = useMutation({
-    mutationFn: async (item: Partial<DepartmentItem>) => {
+    mutationFn: async (item: DepartmentInsert | DepartmentUpdate) => {
       if (editingItem?.id) {
         const { error } = await supabase
           .from('departments')
-          .update(item)
+          .update(item as DepartmentUpdate)
           .eq('id', editingItem.id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from('departments').insert([item]);
+        const { error } = await supabase.from('departments').insert([item as DepartmentInsert]);
         if (error) throw error;
       }
     },
@@ -83,14 +75,14 @@ const DepartmentsAdmin: React.FC = () => {
       setDialogOpen(false);
       setEditingItem(null);
       toast({
-        title: 'Muvaffaqiyatli!',
-        description: editingItem ? 'Bo\'lim yangilandi' : 'Bo\'lim qo\'shildi',
+        title: t('success'),
+        description: editingItem ? t('updated') : t('added'),
       });
     },
     onError: (error: Error) => {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
+        title: t('error'),
         description: error.message,
       });
     },
@@ -106,8 +98,8 @@ const DepartmentsAdmin: React.FC = () => {
       setDeleteDialogOpen(false);
       setDeletingId(null);
       toast({
-        title: 'O\'chirildi',
-        description: 'Bo\'lim o\'chirildi',
+        title: t('deleted'),
+        description: t('deleted'),
       });
     },
   });
@@ -129,7 +121,7 @@ const DepartmentsAdmin: React.FC = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     
-    const item = {
+    const item: DepartmentInsert = {
       name_uz: formData.get('name_uz') as string,
       name_ru: formData.get('name_ru') as string,
       name_en: formData.get('name_en') as string,
@@ -143,13 +135,13 @@ const DepartmentsAdmin: React.FC = () => {
     saveMutation.mutate(item);
   };
 
-  const getName = (item: DepartmentItem) => {
+  const getName = (item: DepartmentRow) => {
     if (language === 'uz') return item.name_uz;
     if (language === 'ru') return item.name_ru;
     return item.name_en;
   };
 
-  const getDescription = (item: DepartmentItem) => {
+  const getDescription = (item: DepartmentRow) => {
     if (language === 'uz') return item.description_uz;
     if (language === 'ru') return item.description_ru;
     return item.description_en;
@@ -160,26 +152,26 @@ const DepartmentsAdmin: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-display font-bold">Bo'limlar</h1>
-            <p className="text-muted-foreground">Bo'limlar boshqaruvi</p>
+            <h1 className="text-2xl font-display font-bold">{t('adminDepartments')}</h1>
+            <p className="text-muted-foreground">{t('departments')}</p>
           </div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button onClick={() => setEditingItem(null)}>
                 <Plus className="w-4 h-4 mr-2" />
-                Qo'shish
+                {t('add')}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>
-                  {editingItem ? 'Bo\'limni tahrirlash' : 'Yangi bo\'lim'}
+                  {editingItem ? t('edit') : t('add')}
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name_uz">Nomi (UZ)</Label>
+                    <Label htmlFor="name_uz">{t('nameUz'))}}</Label>
                     <Input
                       id="name_uz"
                       name="name_uz"
@@ -188,7 +180,7 @@ const DepartmentsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name_ru">Nomi (RU)</Label>
+                    <Label htmlFor="name_ru">{t('nameRu')}</Label>
                     <Input
                       id="name_ru"
                       name="name_ru"
@@ -197,7 +189,7 @@ const DepartmentsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name_en">Nomi (EN)</Label>
+                    <Label htmlFor="name_en">{t('nameEn')}</Label>
                     <Input
                       id="name_en"
                       name="name_en"
@@ -208,7 +200,7 @@ const DepartmentsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description_uz">Tavsif (UZ)</Label>
+                  <Label htmlFor="description_uz">{t('descriptionUz')}</Label>
                   <Textarea
                     id="description_uz"
                     name="description_uz"
@@ -219,7 +211,7 @@ const DepartmentsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description_ru">Tavsif (RU)</Label>
+                  <Label htmlFor="description_ru">{t('descriptionRu')}</Label>
                   <Textarea
                     id="description_ru"
                     name="description_ru"
@@ -230,7 +222,7 @@ const DepartmentsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description_en">Tavsif (EN)</Label>
+                  <Label htmlFor="description_en">{t('descriptionEn')}</Label>
                   <Textarea
                     id="description_en"
                     name="description_en"
@@ -241,7 +233,7 @@ const DepartmentsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="icon">Icon nomi (Lucide)</Label>
+                  <Label htmlFor="icon">{t('iconName')}</Label>
                   <Input
                     id="icon"
                     name="icon"
@@ -256,7 +248,7 @@ const DepartmentsAdmin: React.FC = () => {
                     name="published"
                     defaultChecked={editingItem?.published ?? false}
                   />
-                  <Label htmlFor="published">Nashr qilish</Label>
+                  <Label htmlFor="published">{t('publish')}</Label>
                 </div>
 
                 <div className="flex justify-end gap-2">
@@ -265,13 +257,13 @@ const DepartmentsAdmin: React.FC = () => {
                     variant="outline"
                     onClick={() => setDialogOpen(false)}
                   >
-                    Bekor qilish
+                    {t('cancel')}
                   </Button>
                   <Button type="submit" disabled={saveMutation.isPending}>
                     {saveMutation.isPending && (
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     )}
-                    Saqlash
+                    {t('save')}
                   </Button>
                 </div>
               </form>
@@ -348,17 +340,17 @@ const DepartmentsAdmin: React.FC = () => {
         <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>O'chirishni tasdiqlaysizmi?</AlertDialogTitle>
+              <AlertDialogTitle>{t('confirmDelete')}</AlertDialogTitle>
               <AlertDialogDescription>
-                Bu amalni qaytarib bo'lmaydi. Bo'lim butunlay o'chiriladi.
+                {t('cannotUndo')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
+              <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => deletingId && deleteMutation.mutate(deletingId)}
               >
-                O'chirish
+                {t('delete')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

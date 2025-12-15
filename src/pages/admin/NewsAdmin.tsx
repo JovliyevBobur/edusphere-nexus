@@ -28,29 +28,20 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-interface NewsItem {
-  id: string;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  content_uz: string;
-  content_ru: string;
-  content_en: string;
-  category: string;
-  image_url: string | null;
-  published: boolean | null;
-  created_at: string;
-}
+type NewsRow = Tables<'news'>;
+type NewsInsert = TablesInsert<'news'>;
+type NewsUpdate = TablesUpdate<'news'>;
 
 const NewsAdmin: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState<NewsItem | null>(null);
+  const [editingItem, setEditingItem] = useState<NewsRow | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const { toast } = useToast();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const queryClient = useQueryClient();
 
   const { data: news, isLoading } = useQuery({
@@ -62,20 +53,20 @@ const NewsAdmin: React.FC = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      return data as NewsItem[];
+      return data as NewsRow[];
     },
   });
 
   const saveMutation = useMutation({
-    mutationFn: async (item: Partial<NewsItem>) => {
+    mutationFn: async (item: NewsInsert | NewsUpdate) => {
       if (editingItem?.id) {
         const { error } = await supabase
           .from('news')
-          .update(item)
+          .update(item as NewsUpdate)
           .eq('id', editingItem.id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from('news').insert([item]);
+        const { error } = await supabase.from('news').insert([item as NewsInsert]);
         if (error) throw error;
       }
     },
@@ -84,14 +75,14 @@ const NewsAdmin: React.FC = () => {
       setDialogOpen(false);
       setEditingItem(null);
       toast({
-        title: 'Muvaffaqiyatli!',
-        description: editingItem ? 'Yangilik yangilandi' : 'Yangilik qo\'shildi',
+        title: t('success'),
+        description: editingItem ? t('updated') : t('added'),
       });
     },
     onError: (error: Error) => {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
+        title: t('error'),
         description: error.message,
       });
     },
@@ -107,8 +98,8 @@ const NewsAdmin: React.FC = () => {
       setDeleteDialogOpen(false);
       setDeletingId(null);
       toast({
-        title: 'O\'chirildi',
-        description: 'Yangilik o\'chirildi',
+        title: t('deleted'),
+        description: t('deleted'),
       });
     },
   });
@@ -130,7 +121,7 @@ const NewsAdmin: React.FC = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     
-    const item = {
+    const item: NewsInsert = {
       title_uz: formData.get('title_uz') as string,
       title_ru: formData.get('title_ru') as string,
       title_en: formData.get('title_en') as string,
@@ -145,7 +136,7 @@ const NewsAdmin: React.FC = () => {
     saveMutation.mutate(item);
   };
 
-  const getTitle = (item: NewsItem) => {
+  const getTitle = (item: NewsRow) => {
     if (language === 'uz') return item.title_uz;
     if (language === 'ru') return item.title_ru;
     return item.title_en;
@@ -156,26 +147,26 @@ const NewsAdmin: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-display font-bold">Yangiliklar</h1>
-            <p className="text-muted-foreground">Yangiliklar boshqaruvi</p>
+            <h1 className="text-2xl font-display font-bold">{t('adminNews')}</h1>
+            <p className="text-muted-foreground">{t('news')}</p>
           </div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button onClick={() => setEditingItem(null)}>
                 <Plus className="w-4 h-4 mr-2" />
-                Qo'shish
+                {t('add')}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>
-                  {editingItem ? 'Yangilikni tahrirlash' : 'Yangi yangilik'}
+                  {editingItem ? t('edit') : t('add')}
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="title_uz">Sarlavha (UZ)</Label>
+                    <Label htmlFor="title_uz">{t('titleUz')}</Label>
                     <Input
                       id="title_uz"
                       name="title_uz"
@@ -184,7 +175,7 @@ const NewsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="title_ru">Sarlavha (RU)</Label>
+                    <Label htmlFor="title_ru">{t('titleRu')}</Label>
                     <Input
                       id="title_ru"
                       name="title_ru"
@@ -193,7 +184,7 @@ const NewsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="title_en">Sarlavha (EN)</Label>
+                    <Label htmlFor="title_en">{t('titleEn')}</Label>
                     <Input
                       id="title_en"
                       name="title_en"
@@ -204,7 +195,7 @@ const NewsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="content_uz">Matn (UZ)</Label>
+                  <Label htmlFor="content_uz">{t('descriptionUz')}</Label>
                   <Textarea
                     id="content_uz"
                     name="content_uz"
@@ -215,7 +206,7 @@ const NewsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="content_ru">Matn (RU)</Label>
+                  <Label htmlFor="content_ru">{t('descriptionRu')}</Label>
                   <Textarea
                     id="content_ru"
                     name="content_ru"
@@ -226,7 +217,7 @@ const NewsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="content_en">Matn (EN)</Label>
+                  <Label htmlFor="content_en">{t('descriptionEn')}</Label>
                   <Textarea
                     id="content_en"
                     name="content_en"
@@ -238,7 +229,7 @@ const NewsAdmin: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="category">Kategoriya</Label>
+                    <Label htmlFor="category">{t('category')}</Label>
                     <Input
                       id="category"
                       name="category"
@@ -246,7 +237,7 @@ const NewsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="image_url">Rasm URL</Label>
+                    <Label htmlFor="image_url">{t('imageUrl')}</Label>
                     <Input
                       id="image_url"
                       name="image_url"
@@ -261,7 +252,7 @@ const NewsAdmin: React.FC = () => {
                     name="published"
                     defaultChecked={editingItem?.published ?? false}
                   />
-                  <Label htmlFor="published">Nashr qilish</Label>
+                  <Label htmlFor="published">{t('publish')}</Label>
                 </div>
 
                 <div className="flex justify-end gap-2">
@@ -270,13 +261,13 @@ const NewsAdmin: React.FC = () => {
                     variant="outline"
                     onClick={() => setDialogOpen(false)}
                   >
-                    Bekor qilish
+                    {t('cancel')}
                   </Button>
                   <Button type="submit" disabled={saveMutation.isPending}>
                     {saveMutation.isPending && (
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     )}
-                    Saqlash
+                    {t('save')}
                   </Button>
                 </div>
               </form>
@@ -357,17 +348,17 @@ const NewsAdmin: React.FC = () => {
         <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>O'chirishni tasdiqlaysizmi?</AlertDialogTitle>
+              <AlertDialogTitle>{t('confirmDelete')}</AlertDialogTitle>
               <AlertDialogDescription>
-                Bu amalni qaytarib bo'lmaydi. Yangilik butunlay o'chiriladi.
+                {t('cannotUndo')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
+              <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => deletingId && deleteMutation.mutate(deletingId)}
               >
-                O'chirish
+                {t('delete')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
