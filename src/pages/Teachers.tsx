@@ -27,9 +27,9 @@ const Teachers: React.FC = () => {
       phone: '',
     },
     {
-      name: '',
-      role: 'Direktor o‘rinbosari (tarbiyaviy)',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+      name: 'Otamurotov Farhod',
+      role: 'Direktor o‘rinbosari (o’quv ishlari)',
+      image: '/teachers/zavuch.JPG',
       phone: '',
     },
   ];
@@ -103,7 +103,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Durdiyeva Farzona',
       subject: 'History',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop',
+      image: '/teachers/tarix.JPG',
       telegram: '',
       phone: '+998 (93) 116-29-94',
     },
@@ -118,7 +118,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Urunova Malohat',
       subject: 'English Literature',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop',
+      image: '/teachers/ingliz tili.jpg',
       telegram: '',
       phone: '+998 (97) 130-56-88',
     },
@@ -132,7 +132,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Madraimova Farangiz',
       subject: 'English Literature',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop',
+      image: '/teachers/ingliz tili2.jpg',
       telegram: '',
       phone: '',
     },
@@ -140,7 +140,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Bekturdiyev Gʹayrat',
       subject: 'Russian Literature',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop',
+      image: '/teachers/rus tili2.gif',
       telegram: '',
       phone: '+998 (99) 747-21-13 ',
     },
@@ -177,7 +177,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Ataboyeva Mahliyo',
       subject: 'Computer Science',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      image: '/teachers/informatika.jpg',
       telegram: '',
       phone: '+998 (99) 739-40-78',
     },
@@ -197,8 +197,8 @@ const Teachers: React.FC = () => {
     },
     {
       name: 'Roʹzibayev Azizbek',
-      subject: '',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      subject: 'Pre-Military Training',
+      image: '/teachers/chqbt.JPG',
       telegram: '',
       phone: '',
     },
