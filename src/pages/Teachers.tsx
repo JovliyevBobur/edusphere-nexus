@@ -188,14 +188,14 @@ const Teachers: React.FC = () => {
     {
       name: 'Xakimov Xamza',
       subject: 'Geography',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      image: '/teachers/geografiya.JPG',
       telegram: '',
       phone: '+998 (94) 110-40-84',
     },
     {
       name: 'Raxmonov Alisher',
       subject: 'Physical Education',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      image: '/teachers/jt.JPG',
       telegram: '',
       phone: '',
     },

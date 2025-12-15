@@ -77,16 +77,16 @@ const Footer: React.FC = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-1 text-accent" />
                 <span className="text-muted-foreground text-sm">
-                  123 Education Street, Learning City, LC 12345
+                  Tuproqqal'a tuman, Sharlauq MFY, Vatanparvar ko'chasi 14-uy
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent" />
-                <span className="text-muted-foreground text-sm">+1 (555) 123-4567</span>
+                <span className="text-muted-foreground text-sm">+998993389111</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent" />
-                <span className="text-muted-foreground text-sm">info@brightfuture.edu</span>
+                <span className="text-muted-foreground text-sm">imx321@piima.uz</span>
               </li>
             </ul>
           </div>
