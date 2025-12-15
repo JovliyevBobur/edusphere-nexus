@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -18,10 +18,10 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'Youtube' },
+    { icon: Send, href: 'https://t.me/', label: 'Telegram' },
+    { icon: Instagram, href: 'https://instagram.com/', label: 'Instagram' },
+    { icon: Mail, href: 'mailto:imx321@piima.uz', label: 'Email' },
+    { icon: Phone, href: 'tel:+998993389111', label: 'Telefon' },
   ];
 
   return (
