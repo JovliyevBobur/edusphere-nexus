@@ -46,12 +46,12 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       title: t('phone'),
-      details: ['+1 (555) 123-4567', '+1 (555) 123-4568'],
+      details: ['+998 (99) 338-91-11', '+998 (93) 005-42-87'],
     },
     {
       icon: Mail,
       title: t('email'),
-      details: ['info@brightfuture.edu', 'admissions@brightfuture.edu'],
+      details: ['imx321@piima.uz', 'jbobur2o1o@gmail.com'],
     },
     {
       icon: Clock,
