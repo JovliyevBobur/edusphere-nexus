@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Award, BookOpen, Users, Calendar, GraduationCap, Trophy, FileText, Laptop, Leaf, Brain, FlaskConical, Atom, Calculator, Activity, Heart, BarChart3 } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip, LabelList as RechartsLabelList } from 'recharts';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -16,9 +17,16 @@ const About: React.FC = () => {
   ];
 
   const leadership = [
-    { name: 'Dr. Sarah Johnson', role: 'Principal', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop' },
-    { name: 'Prof. Michael Chen', role: 'Vice Principal', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop' },
-    { name: 'Dr. Emily Parker', role: 'Academic Director', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop' },
+    { name: 'Jovliyev Bobur', image: '/teachers/Bobur.jpg' },
+    { name: 'Qurbonboyev Maqsadbek', image: '/teachers/Maqsadbek.jpg' },
+    { name: 'Norimov G′anijon', image: '/teachers/Ganijon.JPG' },
+  ];
+
+  const teacherCategoryData = [
+    { label: 'Mutaxassis', value: 1 },
+    { label: 'Ikkinchi toifa', value: 2 },
+    { label: 'Birinchi toifa', value: 5 },
+    { label: 'Oliy toifa', value: 19 },
   ];
 
   return (
@@ -386,7 +394,7 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Image */}
+              {/* Chart */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -395,11 +403,29 @@ const About: React.FC = () => {
               >
                 <div className="relative z-10">
                   <div className="absolute -inset-4 bg-gradient-primary rounded-3xl opacity-20 blur-2xl" />
-                  <img
-                    src="/abc.png"
-                    alt="Teacher Qualification Categories Chart"
-                    className="relative rounded-2xl shadow-2xl w-full h-auto object-cover bg-white/10 p-4"
-                  />
+                  <div className="relative rounded-2xl shadow-2xl w-full h-auto bg-card border border-border/50 p-4">
+                    <ResponsiveContainer width="100%" height={320}>
+                      <BarChart data={teacherCategoryData} margin={{ top: 24, right: 16, left: 0, bottom: 8 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+                        <XAxis dataKey="label" tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} />
+                        <YAxis allowDecimals={false} tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }} />
+                        <Tooltip
+                          cursor={{ fill: 'var(--muted)', opacity: 0.3 }}
+                          contentStyle={{ borderRadius: 12, border: '1px solid var(--border)', background: 'var(--card)' }}
+                          formatter={(val: number) => [`${val} ta`, 'Soni']}
+                        />
+                        <Bar dataKey="value" radius={[6, 6, 0, 0]} fill="url(#teacherGradient)">
+                          <defs>
+                            <linearGradient id="teacherGradient" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#4ADE80" />
+                              <stop offset="100%" stopColor="#22C55E" stopOpacity={0.85} />
+                            </linearGradient>
+                          </defs>
+                          <RechartsLabelList dataKey="value" position="top" fill="var(--foreground)" fontSize={12} />
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
                 </div>
               </motion.div>
             </div>

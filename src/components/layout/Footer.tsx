@@ -77,17 +77,17 @@ const Footer: React.FC = () => {
             <h4 className="font-display font-semibold text-lg mb-4">{t('contactInfo')}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-1 text-accent" />
+                <MapPin className="w-5 h-5 mt-[2px] text-accent" />
                 <span className="text-muted-foreground text-sm">
                   Tuproqqal'a tuman, Sharlauq MFY, Vatanparvar ko'chasi 14-uy
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-accent" />
+                <Phone className="w-5 h-5 text-accent" />
                 <span className="text-muted-foreground text-sm">+998 (99) 338-91-11</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-accent" />
+                <Mail className="w-5 h-5 text-accent" />
                 <span className="text-muted-foreground text-sm">imx321@piima.uz</span>
               </li>
             </ul>
