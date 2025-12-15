@@ -120,7 +120,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Sultonova Maftuna',
       subject: 'Russian Literature',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
+      image: '/teachers/rus tili.jpg',
       telegram: '',
       phone: '+998 (95) 361-80-95',
     },
@@ -135,7 +135,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Allaberganova Gulbahor',
       subject: 'Chemistry',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop',
+      image: '/teachers/kimyo.jpg',
       telegram: '',
       phone: '+998 (99) 865-74-38',
     },
