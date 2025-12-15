@@ -55,14 +55,14 @@ const Teachers: React.FC = () => {
     {
       name: 'Matmurotov Quvandiq',
       subject: 'Physics',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop',
+      image: '/teachers/fizika.jpg',
       telegram: '',
       phone: '+998 (97) 211-44-71',
     },
     {
       name: 'Jabborov Vohidjon',
       subject: 'Physics',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop',
+      image: '/teachers/fizika1.png',
       telegram: '',
       phone: '+998 (97) 859-01-86',
     },

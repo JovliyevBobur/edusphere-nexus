@@ -22,7 +22,9 @@ const imagesToCopy = [
   { src: 'teachers/matematika4.png', dest: 'public/teachers/matematika4.png' },
   { src: 'teachers/matematika3.jpg', dest: 'public/teachers/matematika3.jpg' },
   { src: 'teachers/matematika.jpg', dest: 'public/teachers/matematika.jpg' },
-  { src: 'teachers/matematika6.jpg', dest: 'public/teachers/matematika6.jpg' }
+  { src: 'teachers/matematika6.jpg', dest: 'public/teachers/matematika6.jpg' },
+  { src: 'teachers/fizika.jpg', dest: 'public/teachers/fizika.jpg' },
+  { src: 'teachers/fizika1.png', dest: 'public/teachers/fizika1.png' }
 ];
 
 imagesToCopy.forEach(({ src, dest }) => {
