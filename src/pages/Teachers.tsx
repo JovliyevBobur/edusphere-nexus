@@ -9,25 +9,25 @@ const Teachers: React.FC = () => {
 
   const leaders = [
     {
-      name: 'Yo‘ldashev Alisher',
+      name: 'Matyoqubova Lobar',
       role: 'Direktor',
       image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop',
       phone: '+998 (90) 000-00-01',
     },
     {
-      name: 'Karimova Dilnoza',
-      role: 'Direktor o‘rinbosari (o‘quv ishlari)',
+      name: 'Kenjayev Maqsudbek',
+      role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
       image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop',
       phone: '+998 (90) 000-00-02',
     },
     {
-      name: 'Tursunov Jamshid',
+      name: '',
       role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
       image: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&h=400&fit=crop',
       phone: '+998 (90) 000-00-03',
     },
     {
-      name: 'Saidova Mahliyo',
+      name: '',
       role: 'Direktor o‘rinbosari (tarbiyaviy)',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
       phone: '+998 (90) 000-00-04',
@@ -306,11 +306,8 @@ const Teachers: React.FC = () => {
         <div className="container mx-auto px-4">
           {/* Leadership */}
           <div className="mb-14">
-            <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
-              <div>
-                <h2 className="font-display text-3xl font-bold text-foreground">Rahbariyat</h2>
-                <p className="text-muted-foreground">Direktor va o‘rinbosarlar</p>
-              </div>
+            <div className="mb-6 text-center">
+              <h2 className="font-display text-3xl font-bold text-foreground">Rahbariyat</h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {leaders.map((leader, index) => (
@@ -346,6 +343,11 @@ const Teachers: React.FC = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+
+          {/* Teachers heading */}
+          <div className="mb-8 text-center">
+            <h2 className="font-display text-3xl font-bold text-foreground">O'qituvchilar</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
