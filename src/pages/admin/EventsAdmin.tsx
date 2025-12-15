@@ -28,30 +28,20 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Tables, TablesInsert, TablesUpdate } from '@/integrations/supabase/types';
 
-interface EventItem {
-  id: string;
-  title_uz: string;
-  title_ru: string;
-  title_en: string;
-  description_uz: string;
-  description_ru: string;
-  description_en: string;
-  event_date: string;
-  location: string | null;
-  image_url: string | null;
-  published: boolean | null;
-  created_at: string;
-}
+type EventRow = Tables<'events'>;
+type EventInsert = TablesInsert<'events'>;
+type EventUpdate = TablesUpdate<'events'>;
 
 const EventsAdmin: React.FC = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState<EventItem | null>(null);
+  const [editingItem, setEditingItem] = useState<EventRow | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const { toast } = useToast();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const queryClient = useQueryClient();
 
   const { data: events, isLoading } = useQuery({
@@ -63,20 +53,20 @@ const EventsAdmin: React.FC = () => {
         .order('event_date', { ascending: false });
 
       if (error) throw error;
-      return data as EventItem[];
+      return data as EventRow[];
     },
   });
 
   const saveMutation = useMutation({
-    mutationFn: async (item: Partial<EventItem>) => {
+    mutationFn: async (item: EventInsert | EventUpdate) => {
       if (editingItem?.id) {
         const { error } = await supabase
           .from('events')
-          .update(item)
+          .update(item as EventUpdate)
           .eq('id', editingItem.id);
         if (error) throw error;
       } else {
-        const { error } = await supabase.from('events').insert([item]);
+        const { error } = await supabase.from('events').insert([item as EventInsert]);
         if (error) throw error;
       }
     },
@@ -85,14 +75,14 @@ const EventsAdmin: React.FC = () => {
       setDialogOpen(false);
       setEditingItem(null);
       toast({
-        title: 'Muvaffaqiyatli!',
-        description: editingItem ? 'Tadbir yangilandi' : 'Tadbir qo\'shildi',
+        title: t('success'),
+        description: editingItem ? t('updated') : t('added'),
       });
     },
     onError: (error: Error) => {
       toast({
         variant: 'destructive',
-        title: 'Xatolik',
+        title: t('error'),
         description: error.message,
       });
     },
@@ -108,8 +98,8 @@ const EventsAdmin: React.FC = () => {
       setDeleteDialogOpen(false);
       setDeletingId(null);
       toast({
-        title: 'O\'chirildi',
-        description: 'Tadbir o\'chirildi',
+        title: t('deleted'),
+        description: t('deleted'),
       });
     },
   });
@@ -131,7 +121,7 @@ const EventsAdmin: React.FC = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     
-    const item = {
+    const item: EventInsert = {
       title_uz: formData.get('title_uz') as string,
       title_ru: formData.get('title_ru') as string,
       title_en: formData.get('title_en') as string,
@@ -147,7 +137,7 @@ const EventsAdmin: React.FC = () => {
     saveMutation.mutate(item);
   };
 
-  const getTitle = (item: EventItem) => {
+  const getTitle = (item: EventRow) => {
     if (language === 'uz') return item.title_uz;
     if (language === 'ru') return item.title_ru;
     return item.title_en;
@@ -158,26 +148,26 @@ const EventsAdmin: React.FC = () => {
       <div className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-display font-bold">Tadbirlar</h1>
-            <p className="text-muted-foreground">Tadbirlar boshqaruvi</p>
+            <h1 className="text-2xl font-display font-bold">{t('adminEvents')}</h1>
+            <p className="text-muted-foreground">{t('events')}</p>
           </div>
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
               <Button onClick={() => setEditingItem(null)}>
                 <Plus className="w-4 h-4 mr-2" />
-                Qo'shish
+                {t('add')}
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>
-                  {editingItem ? 'Tadbirni tahrirlash' : 'Yangi tadbir'}
+                  {editingItem ? t('edit') : t('add')}
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="title_uz">Sarlavha (UZ)</Label>
+                    <Label htmlFor="title_uz">{t('titleUz')}</Label>
                     <Input
                       id="title_uz"
                       name="title_uz"
@@ -186,7 +176,7 @@ const EventsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="title_ru">Sarlavha (RU)</Label>
+                    <Label htmlFor="title_ru">{t('titleRu')}</Label>
                     <Input
                       id="title_ru"
                       name="title_ru"
@@ -195,7 +185,7 @@ const EventsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="title_en">Sarlavha (EN)</Label>
+                    <Label htmlFor="title_en">{t('titleEn')}</Label>
                     <Input
                       id="title_en"
                       name="title_en"
@@ -206,7 +196,7 @@ const EventsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description_uz">Tavsif (UZ)</Label>
+                  <Label htmlFor="description_uz">{t('descriptionUz')}</Label>
                   <Textarea
                     id="description_uz"
                     name="description_uz"
@@ -217,7 +207,7 @@ const EventsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description_ru">Tavsif (RU)</Label>
+                  <Label htmlFor="description_ru">{t('descriptionRu')}</Label>
                   <Textarea
                     id="description_ru"
                     name="description_ru"
@@ -228,7 +218,7 @@ const EventsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="description_en">Tavsif (EN)</Label>
+                  <Label htmlFor="description_en">{t('descriptionEn')}</Label>
                   <Textarea
                     id="description_en"
                     name="description_en"
@@ -240,7 +230,7 @@ const EventsAdmin: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="event_date">Sana</Label>
+                    <Label htmlFor="event_date">{t('date')}</Label>
                     <Input
                       id="event_date"
                       name="event_date"
@@ -250,7 +240,7 @@ const EventsAdmin: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="location">Joylashuv</Label>
+                    <Label htmlFor="location">{t('location')}</Label>
                     <Input
                       id="location"
                       name="location"
@@ -260,7 +250,7 @@ const EventsAdmin: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="image_url">Rasm URL</Label>
+                  <Label htmlFor="image_url">{t('imageUrl')}</Label>
                   <Input
                     id="image_url"
                     name="image_url"
@@ -274,7 +264,7 @@ const EventsAdmin: React.FC = () => {
                     name="published"
                     defaultChecked={editingItem?.published ?? false}
                   />
-                  <Label htmlFor="published">Nashr qilish</Label>
+                  <Label htmlFor="published">{t('publish')}</Label>
                 </div>
 
                 <div className="flex justify-end gap-2">
@@ -283,13 +273,13 @@ const EventsAdmin: React.FC = () => {
                     variant="outline"
                     onClick={() => setDialogOpen(false)}
                   >
-                    Bekor qilish
+                    {t('cancel')}
                   </Button>
                   <Button type="submit" disabled={saveMutation.isPending}>
                     {saveMutation.isPending && (
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     )}
-                    Saqlash
+                    {t('save')}
                   </Button>
                 </div>
               </form>
@@ -379,17 +369,17 @@ const EventsAdmin: React.FC = () => {
         <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>O'chirishni tasdiqlaysizmi?</AlertDialogTitle>
+              <AlertDialogTitle>{t('confirmDelete')}</AlertDialogTitle>
               <AlertDialogDescription>
-                Bu amalni qaytarib bo'lmaydi. Tadbir butunlay o'chiriladi.
+                {t('cannotUndo')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
+              <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
               <AlertDialogAction
                 onClick={() => deletingId && deleteMutation.mutate(deletingId)}
               >
-                O'chirish
+                {t('delete')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
