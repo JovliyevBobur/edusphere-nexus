@@ -7,6 +7,33 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const Teachers: React.FC = () => {
   const { t } = useLanguage();
 
+  const leaders = [
+    {
+      name: 'Yo‘ldashev Alisher',
+      role: 'Direktor',
+      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop',
+      phone: '+998 (90) 000-00-01',
+    },
+    {
+      name: 'Karimova Dilnoza',
+      role: 'Direktor o‘rinbosari (o‘quv ishlari)',
+      image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop',
+      phone: '+998 (90) 000-00-02',
+    },
+    {
+      name: 'Tursunov Jamshid',
+      role: 'Direktor o‘rinbosari (ma’naviy-ma’rifiy)',
+      image: 'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&h=400&fit=crop',
+      phone: '+998 (90) 000-00-03',
+    },
+    {
+      name: 'Saidova Mahliyo',
+      role: 'Direktor o‘rinbosari (tarbiyaviy)',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+      phone: '+998 (90) 000-00-04',
+    },
+  ];
+
   const teachers = [
     // Mathematics - 6 total
     {
@@ -277,6 +304,50 @@ const Teachers: React.FC = () => {
       {/* Teachers Grid */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-4">
+          {/* Leadership */}
+          <div className="mb-14">
+            <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
+              <div>
+                <h2 className="font-display text-3xl font-bold text-foreground">Rahbariyat</h2>
+                <p className="text-muted-foreground">Direktor va o‘rinbosarlar</p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {leaders.map((leader, index) => (
+                <motion.div
+                  key={leader.name}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="p-6 rounded-2xl bg-card border border-primary/20 shadow-[0_10px_40px_-20px_rgba(59,130,246,0.6)] text-center"
+                >
+                  <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-primary/20">
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-1">
+                    {leader.name}
+                  </h3>
+                  <p className="text-primary text-sm font-medium mb-3">{leader.role}</p>
+                  {leader.phone && (
+                    <div className="flex justify-center">
+                      <a
+                        href={`tel:${leader.phone}`}
+                        className="px-3 py-2 text-sm rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition"
+                      >
+                        {leader.phone}
+                      </a>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {teachers.map((teacher, index) => (
               <motion.div

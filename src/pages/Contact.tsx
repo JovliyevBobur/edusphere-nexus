@@ -41,7 +41,10 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       title: t('address'),
-      details: ['Tuproqqal\'a tuman, Sharlauq MFY, Vatanparvar ko\'chasi 14-uy'],
+      details: [
+        'Специализироввнные школа Тупроккалъанского района',
+        '68FC+5HP, Pitnak, Xorazm Viloyati',
+      ],
     },
     {
       icon: Phone,
@@ -218,7 +221,7 @@ const Contact: React.FC = () => {
               {/* Map */}
               <div className="rounded-xl overflow-hidden border border-border/50">
                 <iframe
-                  src="https://www.google.com/maps?q=Tuproqqal%27a%20tuman,%20Sharlauq%20MFY,%20Vatanparvar%20ko%27chasi%2014-uy&z=16&output=embed"
+                  src="https://www.google.com/maps?q=Специализироввнные%20школа%20Тупроккалъанского%20района%2C%2068FC%2B5HP%2C%20Pitnak%2C%20Xorazm%20Viloyati&z=16&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
