@@ -129,7 +129,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Axmedova Shoira',
       subject: 'English Literature',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop',
+      image: '/teachers/ingliz tili3.JPG',
       telegram: '',
       phone: '+998 (97) 451-51-81',
     },

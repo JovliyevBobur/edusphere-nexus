@@ -38,7 +38,8 @@ const imagesToCopy = [
   { src: 'teachers/zavuch.JPG', dest: 'public/teachers/zavuch.JPG' },
   { src: 'teachers/ingliz tili2.jpg', dest: 'public/teachers/ingliz tili2.jpg' },
   { src: 'teachers/geografiya.JPG', dest: 'public/teachers/geografiya.JPG' },
-  { src: 'teachers/jt.JPG', dest: 'public/teachers/jt.JPG' }
+  { src: 'teachers/jt.JPG', dest: 'public/teachers/jt.JPG' },
+  { src: 'teachers/ingliz tili3.JPG', dest: 'public/teachers/ingliz tili3.JPG' }
 ];
 
 imagesToCopy.forEach(({ src, dest }) => {
