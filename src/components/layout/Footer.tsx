@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: Send, href: 'https://t.me/', label: 'Telegram' },
-    { icon: Instagram, href: 'https://instagram.com/', label: 'Instagram' },
+    { icon: Send, href: 'https://t.me/T2022PIMA', label: 'Telegram' },
+    { icon: Instagram, href: 'https://www.instagram.com/tuproqqala_tuman_im_?igsh=MWtpNGRqdGxzajhhYg==', label: 'Instagram' },
     { icon: Mail, href: 'mailto:imx321@piima.uz', label: 'Email' },
     { icon: Phone, href: 'tel:+998993389111', label: 'Telefon' },
   ];
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent" />
-                <span className="text-muted-foreground text-sm">"+998 (99) 338-91-11"</span>
+                <span className="text-muted-foreground text-sm">+998 (99) 338-91-11</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-accent" />
