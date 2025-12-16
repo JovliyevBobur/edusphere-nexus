@@ -115,7 +115,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Babajonova Dilfuza',
       subject: 'English Literature',
-      image: '/teachers/ingliz tili4.png?v=1',
+      image: '/teachers/ingliz tili4.png',
       telegram: '',
       phone: '+998 (99) 964-11-86',
     },
