@@ -115,7 +115,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Babajonova Dilfuza',
       subject: 'English Literature',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop',
+      image: '/teachers/ingliz tili4.png',
       telegram: '',
       phone: '+998 (99) 964-11-86',
     },
@@ -174,7 +174,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Raximova Nifular',
       subject: 'Computer Science',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop',
+      image: '/teachers/informatika2.jpg',
       telegram: '',
       phone: '+998 (97) 790-01-38',
     },
@@ -216,7 +216,7 @@ const Teachers: React.FC = () => {
     {
       name: 'Madyorova Feruza',
       subject: 'Uzbek Literature',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop',
+      image: '/teachers/ona tili.jpg',
       telegram: '',
       phone: '+998 (94) 195-14-19',
     },

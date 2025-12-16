@@ -35,14 +35,14 @@ const imagesToCopy = [
   { src: 'teachers/chqbt.JPG', dest: 'public/teachers/chqbt.JPG' },
   { src: 'teachers/rus tili2.gif', dest: 'public/teachers/rus tili2.gif' },
   { src: 'teachers/informatika.jpg', dest: 'public/teachers/informatika.jpg' },
+  { src: 'teachers/informatika2.jpg', dest: 'public/teachers/informatika2.jpg' },
   { src: 'teachers/zavuch.JPG', dest: 'public/teachers/zavuch.JPG' },
   { src: 'teachers/ingliz tili2.jpg', dest: 'public/teachers/ingliz tili2.jpg' },
   { src: 'teachers/geografiya.JPG', dest: 'public/teachers/geografiya.JPG' },
   { src: 'teachers/jt.JPG', dest: 'public/teachers/jt.JPG' },
   { src: 'teachers/ingliz tili3.JPG', dest: 'public/teachers/ingliz tili3.JPG' },
-  { src: 'teachers/Bobur.jpg', dest: 'public/teachers/Bobur.jpg' },
-  { src: 'teachers/Maqsadbek.jpg', dest: 'public/teachers/Maqsadbek.jpg' },
-  { src: 'teachers/Ganijon.JPG', dest: 'public/teachers/Ganijon.JPG' }
+  { src: 'teachers/ingliz tili4.png', dest: 'public/teachers/ingliz tili4.png' },
+  { src: 'teachers/ona tili.jpg', dest: 'public/teachers/ona tili.jpg' }
 ];
 
 imagesToCopy.forEach(({ src, dest }) => {
