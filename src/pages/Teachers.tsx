@@ -328,6 +328,7 @@ const Teachers: React.FC = () => {
                       src={leader.image}
                       alt={leader.name}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </div>
                   <h3 className="font-display font-semibold text-lg text-foreground mb-1">
@@ -381,6 +382,7 @@ const Teachers: React.FC = () => {
                     src={teacher.image}
                     alt={teacher.name}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="font-display font-semibold text-lg text-foreground mb-1">
